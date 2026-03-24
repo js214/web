@@ -1,0 +1,44 @@
+{% set b = base if base is defined else "" %}<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="{{ b }}index.html" class="logo">Stanford Research Systems</a>
+        <p>Designing, manufacturing, and supporting precision scientific instruments since the early 1980s. Sunnyvale, California.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','sci')">Scientific</a></li>
+          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','time')">Time &amp; Frequency</a></li>
+          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','analytical')">Analytical</a></li>
+          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','test')">Test &amp; Measurement</a></li>
+          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','vac')">Vacuum</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="{{ b }}index.html#support">Tech Support</a></li>
+          <li><a href="{{ b }}rma.html">Repair &amp; Calibration</a></li>
+          <li><a href="{{ b }}downloads.html">Downloads</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="{{ b }}index.html#about">About SRS</a></li>
+          <li><a href="{{ b }}reps.html">Representatives</a></li>
+          <li><a href="https://thinksrs.com/downloads/pdfs/other%20stuff/Job%20Posting.pdf" target="_blank" rel="noopener">Careers</a></li>
+          <li><a href="{{ b }}index.html#contact">Contact / Order</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>&copy; 2026 Stanford Research Systems, Inc. All rights reserved.</p>
+      <div class="foot-bot-links">
+        <a href="tel:+14087449040">(408) 744-9040</a>
+        <a href="mailto:info@thinkSRS.com">info@thinkSRS.com</a>
+      </div>
+    </div>
+  </div>
+</footer>

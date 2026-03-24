@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repair &amp; Calibration — Stanford Research Systems</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.svg" alt="SRS">
+    <span class="nav-logo-text">Stanford Research Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#products">Products</a></li>
+    <li><a href="index.html#support">Support</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="index.html#products" onclick="closeNav()">Products</a></li>
+    <li><a href="index.html#support" onclick="closeNav()">Support</a></li>
+    <li><a href="index.html#about" onclick="closeNav()">About</a></li>
+    <li><a href="index.html#contact" onclick="closeNav()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="s-tag">Repair &amp; Calibration</span>
+  <h1>Factory Service You Can Trust</h1>
+  <p>Send your instrument back to the engineers who built it. We repair, calibrate, and certify all SRS instruments — including legacy models.</p>
+</div>
+
+<!-- RMA PROCESS -->
+<section class="inner-section">
+  <div class="inner-wrap">
+    <h2>How to Request Service</h2>
+    <p class="lead">The RMA (Return Merchandise Authorization) process ensures your instrument is routed to the right technicians and returned with full documentation. Follow these steps to get started.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Contact Us for an RMA Number</h3>
+          <p>Email <a href="mailto:info@thinkSRS.com">info@thinkSRS.com</a> or call <a href="tel:+14087449040">(408) 744-9040</a> to request an RMA number. Provide your instrument model, serial number, and a description of the problem or service needed. We'll respond with an RMA number and shipping instructions typically within one business day.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Package and Label Your Instrument</h3>
+          <p>Pack your instrument securely in its original packaging if available, or use equivalent foam padding. Write the RMA number clearly on the outside of the box. Include a note inside with your name, contact information, RMA number, and a brief description of the issue.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Ship to Our Facility</h3>
+          <p>Ship your instrument to SRS using any carrier. We recommend using a trackable shipping method and insuring the package. We are not responsible for instruments damaged in transit due to inadequate packaging. Ship to:<br><br>
+          <strong>Stanford Research Systems, Inc.</strong><br>
+          1290 D Reamwood Ave<br>
+          Sunnyvale, CA 94089</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Evaluation and Quote</h3>
+          <p>Upon receipt, our technicians will evaluate your instrument and provide a written repair estimate if the work is not covered under warranty. You will be contacted before any non-warranty work is performed. Evaluation is free if you choose to proceed; a nominal fee applies if you decline the repair.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Repair, Calibration, and Return</h3>
+          <p>Once approved, repairs are completed and the instrument is fully calibrated before return. Standard turnaround is 2–3 weeks from receipt. Rush service is available — contact us when requesting your RMA if timing is critical. A calibration certificate is included with all calibration service.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE TYPES -->
+<section class="inner-section alt">
+  <div class="inner-wrap">
+    <h2>Service Options</h2>
+    <p class="lead">We offer a range of service options to fit your needs, from warranty repair to periodic calibration.</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Warranty Repair</h3>
+        <p>All SRS instruments are warranted against defects in materials and workmanship for one year from date of shipment. Warranty covers parts and labor; shipping to SRS is at customer expense, return shipping is at SRS expense.</p>
+        <ul>
+          <li>1-year warranty on all new instruments</li>
+          <li>No charge for covered defects</li>
+          <li>Extended warranty available — contact us</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Out-of-Warranty Repair</h3>
+        <p>We repair all SRS instruments regardless of age. Instruments from the 1980s and 1990s are routinely serviced. A repair quote is provided before work begins.</p>
+        <ul>
+          <li>Flat-rate evaluation fee (waived if repaired)</li>
+          <li>Written quote before any work</li>
+          <li>Spare parts available for most legacy models</li>
+          <li>Full calibration included after repair</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Periodic Calibration</h3>
+        <p>Annual calibration is recommended for instruments used in calibrated measurement chains. NIST-traceable certificates are issued for all calibration service (except vacuum products).</p>
+        <ul>
+          <li>NIST-traceable calibration certificate included at no charge</li>
+          <li>As-found and as-left data recorded</li>
+          <li>ISO 17025 accredited options available</li>
+          <li>Loaner instruments available on request</li>
+          <li>$50 fee for certificates requested after shipment</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Option Retrofits</h3>
+        <p>Many SRS instruments can be factory-retrofitted with options that were not ordered at time of purchase.</p>
+        <ul>
+          <li>Flat $250 charge to install any retrofit option</li>
+          <li>Contact us with your model and serial number to confirm availability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WARRANTY & POLICIES -->
+<section class="inner-section">
+  <div class="inner-wrap">
+    <h2>Warranty Policy</h2>
+    <p class="lead">SRS instruments are built to last. Our warranty reflects our confidence in the quality of our products.</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>What's Covered</h3>
+        <p>One-year warranty from date of shipment on most instruments. 90-day warranty on batteries, chopper motors, diaphragm pumps, and rebuilt turbomolecular pumps.</p>
+        <ul>
+          <li>Defects in materials and workmanship</li>
+          <li>Component failures under normal use</li>
+          <li>Manufacturing defects discovered after delivery</li>
+          <li>Software or firmware defects in factory-installed software</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>What's Not Covered</h3>
+        <ul>
+          <li>Damage caused by improper use or installation</li>
+          <li>Physical damage (drops, liquid spills, etc.)</li>
+          <li>Damage from use outside specified environmental conditions</li>
+          <li>Modifications made by the customer</li>
+          <li>Normal wear and consumable parts (e.g. filaments)</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Get Started</h3>
+        <p>Ready to send your instrument in for service? Contact us to begin the RMA process. Our team will respond promptly.</p>
+        <ul>
+          <li><a href="mailto:info@thinkSRS.com">info@thinkSRS.com</a></li>
+          <li><a href="tel:+14087449040">(408) 744-9040</a></li>
+          <li>Mon – Fri, 8 AM – 5 PM Pacific</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+{% include '_footer.j2' %}
+
+<script>
+  function toggleNav() { document.getElementById('mobNav').classList.toggle('open'); }
+  function closeNav()  { document.getElementById('mobNav').classList.remove('open'); }
+</script>
+</body>
+</html>

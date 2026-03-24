@@ -1,0 +1,251 @@
+{% macro tile(p) %}
+{% set href = p.href if p.href is defined and p.href else 'product-' ~ p.slug ~ '.html' %}
+{% set external = href.startswith('http') %}
+<div class="pcard">
+  <a class="pcard-link" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %} aria-label="{{ p.model }} product page"></a>
+  {% if p.image is defined and p.image %}<div class="pcard-img"><img src="{{ p.image }}" alt="{{ p.model }}" loading="lazy"></div>{% endif %}
+  <div class="pcard-body">
+    {% if p.is_new is defined and p.is_new %}<span class="new-badge">New</span>{% endif %}
+    <div class="pmodel">{{ p.model }}</div>
+    <div class="pname">{{ p.name }}</div>
+    <div class="pdesc">{{ p.tile_desc if p.tile_desc is defined else p.desc }}</div>
+    {% set ds = p.datasheet if p.datasheet is defined else '' %}
+    {% set mn = p.manual if p.manual is defined else '' %}
+    {% if ds or mn %}
+    <div class="plinks" style="z-index:2;position:relative;">
+      {% if ds %}<a href="{{ ds }}" target="_blank" rel="noopener">Datasheet</a>{% endif %}
+      {% if mn %}<a href="{{ mn }}" target="_blank" rel="noopener">Manual</a>{% endif %}
+    </div>
+    {% endif %}
+    {% if p.price is defined and p.price %}<div class="pcard-price">{{ p.price }}</div>{% endif %}
+  </div>
+</div>
+{% endmacro %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stanford Research Systems — Precision Scientific Instruments</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<script>
+  function showCat(id) {
+    document.querySelectorAll('.cat').forEach(function(el) { el.classList.remove('on'); });
+    document.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('on'); });
+    var c = document.getElementById(id); if (c) c.classList.add('on');
+    var b = document.querySelector('[data-cat="' + id + '"]'); if (b) b.classList.add('on');
+    sessionStorage.setItem('activeTab', id);
+  }
+</script>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.svg" alt="SRS">
+    <span class="nav-logo-text">Stanford Research Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="#products" onclick="closeNav()">Products</a></li>
+    <li><a href="#support" onclick="closeNav()">Support</a></li>
+    <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- PRODUCTS HEADER -->
+<section id="products">
+  <div class="s-head">
+    <h2 class="s-title">Five Families of Precision Instruments</h2>
+    <p class="s-sub">From lock-in amplifiers to residual gas analyzers — every SRS instrument, new or decades old, is fully supported.</p>
+  </div>
+
+  <div class="tabs">
+    {% for tid, tlabel in tab_labels %}
+    <button class="tab{% if loop.first %} on{% endif %}" data-cat="{{ tid }}" onclick="showCat('{{ tid }}')">{{ tlabel }}</button>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- PRODUCT GRIDS -->
+<div class="product-grids">
+  <div class="container">
+    {% for tab_id, tab_groups in tabs_by_group.items() %}
+    <div id="{{ tab_id }}" class="cat{% if loop.first %} on{% endif %}">
+      {% for group_name, group_products in tab_groups %}
+      <div class="pgroup">
+        <div class="pgroup-title">{{ group_name }}</div>
+        <div class="pgrid">
+          {% for p in group_products %}{{ tile(p) }}{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+(function() {
+  var navEntry = performance.getEntriesByType('navigation')[0];
+  if (navEntry && navEntry.type === 'back_forward') {
+    var active = sessionStorage.getItem('activeTab');
+    if (active) showCat(active);
+  }
+  var footerTab = sessionStorage.getItem('tab');
+  if (footerTab) { sessionStorage.removeItem('tab'); showCat(footerTab); }
+})();
+</script>
+
+<!-- SUPPORT -->
+<section id="support">
+  <div class="s-head">
+    <div class="s-tag">Support</div>
+    <h2 class="s-title">We Stand Behind Every Instrument</h2>
+    <p class="s-sub">Direct support from the engineers who designed your instrument — no call centers, no ticket queues.</p>
+  </div>
+  <div class="sup-grid">
+    <div class="sup-card">
+      <h3>Contact Support</h3>
+      <p>Mon – Fri, 8 AM – 5 PM Pacific. Have your model and serial number ready.</p>
+      <a href="tel:+14087449040" class="contact-big">(408) 744-9040</a>
+      <a href="mailto:info@thinkSRS.com" class="sup-link" style="display:block;margin-top:12px;">info@thinkSRS.com →</a>
+    </div>
+    <div class="sup-card">
+      <h3>Repair &amp; Calibration</h3>
+      <p>Factory repair and NIST-traceable calibration at our Sunnyvale facility.</p>
+      <ul class="sup-list">
+        <li>Typical turnaround: 2–3 weeks</li>
+        <li>One-year warranty on parts and workmanship</li>
+        <li>Loaner instruments available on request</li>
+      </ul>
+      <a href="rma.html" class="sup-link">Request an RMA →</a>
+    </div>
+    <div class="sup-card">
+      <h3>Forum</h3>
+      <p>Connect with other SRS users — share measurement tips, programming examples, and application notes.</p>
+      <ul class="sup-list">
+        <li>Instrument-specific discussion boards</li>
+        <li>Code examples and driver sharing</li>
+        <li>Application notes from the community</li>
+      </ul>
+      <a href="#" class="sup-link" style="opacity:0.45;pointer-events:none;">Coming soon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="s-tag">About SRS</div>
+      <h2>Built in Silicon Valley for Over 35 Years</h2>
+      <p>Stanford Research Systems designs, manufactures, and supports a remarkable range of test instruments for research and industry from our 75,000 sq ft facility in Sunnyvale, California.</p>
+      <p>Since the early 1980s we have delivered hundreds of thousands of instruments to scientists and engineers in every corner of the world — from university laboratories to NASA's International Space Station.</p>
+      <p>As a privately held company with over 90% employee ownership, every decision we make is guided by long-term product quality and customer satisfaction.</p>
+    </div>
+    <div class="fact-stack">
+      <div class="fact">
+        <h4>Innovation Leadership</h4>
+        <p>SRS pioneered DSP in lock-in amplifiers, direct digital synthesis in function generators, and rational approximation synthesis in RF generators — earning multiple R&amp;D Innovation Awards.</p>
+      </div>
+      <div class="fact">
+        <h4>Employee Owned</h4>
+        <p>Over 90% of shares are held by current employees, ensuring quality and customer trust come before short-term financial pressures.</p>
+      </div>
+      <div class="fact">
+        <h4>Space Qualified</h4>
+        <p>Our RGA100 mass spectrometer was adapted for NASA and operates on the International Space Station for continuous ammonia leak detection.</p>
+      </div>
+      <div class="fact">
+        <h4>Worldwide Reach</h4>
+        <p>Authorized representatives in Australia, China, Germany, Japan, the UK, and 35+ other countries ensure responsive local support.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="careers-bar">
+    <div class="careers-bar-text">
+      <h3>Join Our Team</h3>
+      <p>We hire Ph.D.-level engineers and scientists who want to design world-class instruments with genuine autonomy. Two positions open now.</p>
+    </div>
+    <div class="careers-bar-jobs">
+      <a href="https://thinksrs.com/downloads/pdfs/other%20stuff/Job%20Posting.pdf" class="job-btn" target="_blank" rel="noopener">Instrument Design Engineer →</a>
+      <a href="https://thinksrs.com/downloads/pdfs/other%20stuff/Sales%20Engineer%20revC.pdf" class="job-btn" target="_blank" rel="noopener">Sales &amp; Marketing Engineer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="s-head">
+    <div class="s-tag">Order &amp; Contact</div>
+    <h2 class="s-title">Ready to Order?</h2>
+    <p class="s-sub">Most SRS instruments ship within days from Sunnyvale. Order online, by phone, or through your regional representative.</p>
+  </div>
+  <div class="order-grid">
+    <div class="ocard">
+      <h3>Order Online</h3>
+      <p>Our secure portal accepts orders worldwide with real-time quoting and order status tracking.</p>
+      <ul>
+        <li>VISA, Mastercard, American Express</li>
+        <li>Net 30 for qualified customers</li>
+        <li>Wire transfer accepted (+$30 fee)</li>
+      </ul>
+      <a href="#contact" class="cta">Ordering Information →</a>
+    </div>
+    <div class="ocard">
+      <h3>Contact Us Directly</h3>
+      <p>Our sales team is available by phone or email for purchase orders, quotes, and product questions.</p>
+      <div class="about-address" style="margin-top:16px;border-top:none;padding-top:0;">
+        Stanford Research Systems<br>
+        1290-D Reamwood Ave.<br>
+        Sunnyvale, CA 94089<br>
+        <br>
+        <a href="tel:+14087449040">(408) 744-9040</a><br>
+        <a href="mailto:info@thinkSRS.com">info@thinkSRS.com</a>
+      </div>
+    </div>
+    <div class="ocard">
+      <h3>International Representatives</h3>
+      <p>Authorized representatives in 40+ countries provide local-language support and regulatory assistance.</p>
+      <ul>
+        <li>Australia, China, Germany, Japan, UK</li>
+        <li>35+ additional countries covered</li>
+        <li>ECCN numbers available for export docs</li>
+      </ul>
+      <a href="reps.html" class="cta">Find Your Rep →</a>
+    </div>
+    <div class="ocard">
+      <h3>Shipping &amp; Delivery</h3>
+      <p>Ships from Sunnyvale, CA via UPS, FedEx, or DHL. Most in-stock items ship within a few days.</p>
+      <ul>
+        <li>Customer's choice of carrier</li>
+        <li>FOB Sunnyvale, CA 94089</li>
+        <li>ECCN numbers available for export</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+{% include '_footer.j2' %}
+
+<script>
+  function toggleNav() { document.getElementById('mobNav').classList.toggle('open'); }
+  function closeNav()  { document.getElementById('mobNav').classList.remove('open'); }
+</script>
+</body>
+</html>
