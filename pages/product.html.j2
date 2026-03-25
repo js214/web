@@ -9,10 +9,12 @@
     .phero { padding: 110px 28px 0; background: #fff; }
     .phero-inner {
       max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch;
       padding-bottom: 52px; border-bottom: 1px solid var(--border);
     }
-    .phero-text .s-tag { display: block; margin-bottom: 10px; }
+    .phero-text { display: flex; flex-direction: column; }
+    .phero-text .s-tag { display: block; margin-bottom: 10px; text-decoration: none; }
+    .phero-text .s-tag:hover { text-decoration: underline; }
     .phero-model { font-size: clamp(40px, 6vw, 68px); font-weight: 700; letter-spacing: -2px; line-height: 1.0; margin-bottom: 6px; color: var(--text); }
     .phero-name { font-size: 22px; color: var(--text-sec); font-weight: 400; margin-bottom: 16px; }
     .phero-desc { font-size: 16.5px; color: var(--text-sec); line-height: 1.65; margin-bottom: 0; }
@@ -20,8 +22,9 @@
     .phero-bullets li { font-size: 15.4px; color: var(--text-sec); padding-left: 16px; position: relative; margin-bottom: 6px; }
     .phero-bullets li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
     .phero-media { display: flex; flex-direction: column; gap: 0; }
-    .phero-main-img img { width: 100%; height: auto; display: block; }
-    .phero-purchase { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .phero-main-img { flex: 1; min-height: 150px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .phero-main-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .phero-purchase { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; padding-top: 40px; }
     .price-block { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     .price-label { font-size: 12.1px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-sec); margin-bottom: 2px; }
     .price-val { font-size: 30.8px; font-weight: 700; letter-spacing: -1px; color: var(--text); line-height: 1; }
@@ -30,8 +33,8 @@
     .purch-btn-primary:hover { background: var(--accent-h); }
     .purch-btn-outline { color: var(--accent); border: 1.5px solid var(--accent); }
     .purch-btn-outline:hover { background: var(--accent); color: #fff; }
-    .phero-panel-imgs { display: flex; gap: 12px; margin-top: 12px; }
-    .phero-panel-imgs img { width: calc(50% - 6px); height: auto; display: block; cursor: zoom-in; object-fit: contain; }
+    .phero-panel-imgs { display: flex; gap: 12px; margin-top: 12px; height: 160px; }
+    .phero-panel-imgs img { width: calc(50% - 6px); height: 100%; object-fit: contain; display: block; cursor: zoom-in; }
 
     .qspecs { background: #fff; padding: 48px 28px; border-bottom: 1px solid var(--border); }
     .qspecs-inner { max-width: 1100px; margin: 0 auto; }
@@ -84,6 +87,15 @@
     .st td:first-child { width: 38%; color: var(--text-sec); font-weight: 500; }
     .st tr:hover td { background: var(--bg-alt); }
     .st-group td { background: var(--bg-alt); font-size: 12.1px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-sec); padding: 8px 14px; }
+
+    .linksec { padding: 40px 28px; background: #fff; border-top: 1px solid var(--border); scroll-margin-top: 98px; }
+    .linksec-inner { max-width: 1100px; margin: 0 auto; }
+    .linksec-inner h2 { font-size: 24.2px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 16px; color: var(--text); }
+    .link-list { list-style: none; margin: 0; padding: 0; }
+    .link-list li { padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 15.4px; }
+    .link-list li:last-child { border-bottom: none; }
+    .link-list a { color: var(--text); text-decoration: none; }
+    .link-list a:hover { color: var(--accent); }
 
     .tsec { padding: 56px 28px; background: var(--bg-alt); border-top: 1px solid var(--border); }
     .tsec-inner { max-width: 1100px; margin: 0 auto; }
@@ -148,7 +160,9 @@
 <div class="phero">
   <div class="phero-inner">
     <div class="phero-text">
-      <span class="s-tag">{{ group if group is defined else "" }}</span>
+      {% set primary_tab = (tabs[0] if (tabs is defined and tabs) else (tab if tab is defined else 'sci')) %}
+      {% set group_display = (groups[primary_tab] if (groups is defined and groups is mapping and primary_tab in groups) else (group if group is defined else '')) %}
+      {% if group_display %}<a class="s-tag" href="../index.html" onclick="sessionStorage.setItem('tab','{{ primary_tab }}');sessionStorage.setItem('group','group-{{ group_display | slugify }}')">{{ group_display }}</a>{% endif %}
       <div class="phero-model">{{ model }}</div>
       <div class="phero-name">{{ name }}</div>
       {% if description_bullets is defined and description_bullets %}
@@ -159,8 +173,6 @@
       </ul>
       {% endif %}
       {% if tile_desc is defined and tile_desc %}<div class="phero-desc">{{ tile_desc }}</div>{% endif %}
-    </div>
-    <div class="phero-media">
       <div class="phero-purchase">
         <div class="price-block">
           <div class="price-label">List Price{% if price_prefix is defined and price_prefix %} — {{ price_prefix }}{% endif %}</div>
@@ -168,16 +180,23 @@
         </div>
         <a href="../index.html#contact" class="purch-btn purch-btn-primary">Buy Now</a>
       </div>
+    </div>
+    <div class="phero-media">
       {% if image is defined and image %}
       {% set img_src = image if image.startswith('http') else '../' + image %}
       <div class="phero-main-img">
         <img src="{{ img_src }}" alt="{{ model }}" loading="lazy" onclick="openLB('{{ img_src }}')" style="cursor:zoom-in">
       </div>
       <div class="phero-panel-imgs">
+        {% if panels is defined and panels %}
+        {% set fp = panels[0] if panels[0].startswith('http') else '../' + panels[0] %}
+        {% set rp = panels[1] if panels|length > 1 and panels[1].startswith('http') else ('../' + panels[1] if panels|length > 1 else '') %}
+        {% else %}
         {% set fp = 'https://thinksrs.com/images/instr/' + slug + '/' + model + '_FPlg.jpg' %}
         {% set rp = 'https://thinksrs.com/images/instr/' + slug + '/' + model + '_RPlg.jpg' %}
+        {% endif %}
         <img src="{{ fp }}" alt="{{ model }} front panel" loading="lazy" onclick="openLB('{{ fp }}')" onerror="this.parentElement.style.display='none'">
-        <img src="{{ rp }}" alt="{{ model }} rear panel" loading="lazy" onclick="openLB('{{ rp }}')" onerror="this.parentElement.removeChild(this)">
+        {% if rp %}<img src="{{ rp }}" alt="{{ model }} rear panel" loading="lazy" onclick="openLB('{{ rp }}')" onerror="this.parentElement.removeChild(this)">{% endif %}
       </div>
       {% endif %}
     </div>
@@ -191,6 +210,8 @@
     {% if body_html %}<a href="#sec-features">Features</a>{% endif %}
     {% if spec_groups is defined and spec_groups %}<a href="#sec-specs">Specifications</a>{% endif %}
     {% if troubleshooting is defined and troubleshooting %}<a href="#sec-troubleshooting">Troubleshooting</a>{% endif %}
+    {% if resources is defined and resources %}<a href="#sec-resources">Resources</a>{% endif %}
+    {% if related is defined and related %}<a href="#sec-related">Related Products</a>{% endif %}
     {% set ds = datasheet if datasheet is defined else "" %}
     {% set mn = manual if manual is defined else "" %}
     {% if ds %}<a href="{{ ds }}" target="_blank" rel="noopener">Datasheet</a>{% endif %}
@@ -239,6 +260,34 @@
       <div class="titem-body">{{ item.a }}</div>
     </details>
     {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if resources is defined and resources %}
+<!-- RESOURCES -->
+<div class="linksec" id="sec-resources">
+  <div class="linksec-inner">
+    <h2>Resources</h2>
+    <ul class="link-list">
+      {% for r in resources %}
+      <li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+{% if related is defined and related %}
+<!-- RELATED PRODUCTS -->
+<div class="linksec" id="sec-related">
+  <div class="linksec-inner">
+    <h2>Related Products</h2>
+    <ul class="link-list">
+      {% for r in related %}
+      <li><a href="{{ r.url }}" {% if r.url.startswith('http') %}target="_blank" rel="noopener"{% endif %}>{{ r.label }}</a></li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 {% endif %}

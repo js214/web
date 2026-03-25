@@ -86,7 +86,7 @@
     {% for tab_id, tab_groups in tabs_by_group.items() %}
     <div id="{{ tab_id }}" class="cat{% if loop.first %} on{% endif %}">
       {% for group_name, group_products in tab_groups %}
-      <div class="pgroup">
+      <div class="pgroup" id="group-{{ group_name | slugify }}">
         <div class="pgroup-title">{{ group_name }}</div>
         <div class="pgrid">
           {% for p in group_products %}{{ tile(p) }}{% endfor %}
@@ -105,7 +105,16 @@
     if (active) showCat(active);
   }
   var footerTab = sessionStorage.getItem('tab');
+  var footerGroup = sessionStorage.getItem('group');
   if (footerTab) { sessionStorage.removeItem('tab'); showCat(footerTab); }
+  if (footerGroup) {
+    sessionStorage.removeItem('group');
+    var target = document.getElementById(footerGroup);
+    if (target) {
+      var navH = (document.querySelector('nav') || {}).offsetHeight || 60;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH - 12, behavior: 'instant' });
+    }
+  }
 })();
 </script>
 

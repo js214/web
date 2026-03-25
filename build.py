@@ -104,6 +104,26 @@ def parse_md(path: Path) -> dict:
     return front
 
 
+def validate_hero_density(data: dict):
+    """Raise if hero text is too sparse or too dense to align price/buy with panel thumbnails."""
+    bullets = data.get("description_bullets") or []
+    desc = data.get("tile_desc") or ""
+    bullet_lines = len(bullets)
+    desc_lines = max(1, len(desc) // 60 + (1 if len(desc) % 60 else 0)) if desc else 0
+    total_lines = bullet_lines + desc_lines
+    slug = data.get("slug", "?")
+    if total_lines < 3:
+        raise ValueError(
+            f"{slug}: hero text too sparse ({total_lines} estimated lines) — "
+            f"add more bullets or a longer tile_desc so the layout doesn't collapse."
+        )
+    if total_lines > 18:
+        raise ValueError(
+            f"{slug}: hero text too dense ({total_lines} estimated lines) — "
+            f"reduce bullets or shorten tile_desc so the main image isn't squeezed out."
+        )
+
+
 def organize_by_tab(products: dict) -> OrderedDict:
     """Return OrderedDict: tab_id -> [(group_name, [sorted products])]"""
     buckets: dict[str, dict[str, list]] = {t: {} for t in TAB_ORDER if t != "new"}
@@ -160,7 +180,7 @@ def copy_dir(src: Path, dst: Path):
         return
     dst.mkdir(parents=True, exist_ok=True)
     for f in src.iterdir():
-        if f.is_file():
+        if f.is_file() and f.suffix != '.bak':
             shutil.copy2(f, dst / f.name)
             print(f"  copied: {dst.name}/{f.name}")
 
@@ -176,7 +196,13 @@ def build(slug: str | None = None):
 
     tabs_by_group = organize_by_tab(all_products)
 
+    def slugify(s):
+        s = s.lower()
+        s = re.sub(r'[^a-z0-9]+', '-', s)
+        return s.strip('-')
+
     env = Environment(loader=FileSystemLoader(str(PAGES_DIR)), autoescape=False)
+    env.filters['slugify'] = slugify
 
     # --- Copy CSS ---
     for f in sorted(PAGES_DIR.glob("*.css")):
@@ -214,6 +240,7 @@ def build(slug: str | None = None):
 
     for md_file in files:
         data = all_products[md_file.stem]
+        validate_hero_density(data)
         out_name = f"{data['slug']}.html"
         html = tmpl.render(**data)
         (prod_dir / out_name).write_text(html, encoding="utf-8")
