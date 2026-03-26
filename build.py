@@ -197,6 +197,7 @@ def build(slug: str | None = None):
             tab_labels=TAB_LABELS,
             new_slugs=new_slugs,
             discontinued_slugs=discontinued_slugs,
+            slug_placement=slug_placement,
         )
         (DIST / out_name).write_text(html, encoding="utf-8")
         print(f"  built:  {out_name}")
@@ -220,6 +221,7 @@ def build(slug: str | None = None):
         if placement:
             data["primary_tab"] = placement[0]
             data["group_display"] = placement[1]
+        data["tab_labels"] = TAB_LABELS
         out_name = f"{data['slug']}.html"
         html = tmpl.render(**data)
         (prod_dir / out_name).write_text(html, encoding="utf-8")

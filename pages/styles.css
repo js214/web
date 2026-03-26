@@ -130,7 +130,7 @@ section { padding: 96px 28px; }
   display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 28px;
   background: linear-gradient(135deg, #0071e3 0%, #34aadc 100%);
   border-radius: var(--radius); padding: 36px 44px;
-  max-width: 1080px; margin: 56px auto 0;
+  max-width: 1080px; margin: 56px auto 0; scroll-margin-top: 80px;
 }
 .careers-bar-text h3 { font-size: 26.4px; font-weight: 700; color: #fff; margin-bottom: 6px; }
 .careers-bar-text p { color: rgba(255,255,255,0.82); font-size: 15.4px; }
@@ -168,6 +168,7 @@ section { padding: 96px 28px; }
 
 /* ── FOOTER ── */
 footer { background: #0d1f33; color: rgba(255,255,255,0.65); padding: 52px 28px 32px; }
+footer a { text-decoration: none; }
 .foot-inner { max-width: 1100px; margin: 0 auto; }
 .foot-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 28px; }
 .foot-brand .logo { display: block; font-size: 16.5px; font-weight: 700; color: #fff; margin-bottom: 12px; }
@@ -177,6 +178,8 @@ footer { background: #0d1f33; color: rgba(255,255,255,0.65); padding: 52px 28px 
 .foot-col a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 14.3px; transition: color var(--t); }
 .foot-col a:hover { color: #fff; }
 .foot-bot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 13.2px; }
+.foot-bot a { color: rgba(255,255,255,0.65); text-decoration: none; }
+.foot-bot a:hover { color: #fff; }
 .foot-bot-links { display: flex; gap: 16px; }
 .foot-bot-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
 .foot-bot-links a:hover { color: #fff; }
@@ -190,7 +193,9 @@ footer { background: #0d1f33; color: rgba(255,255,255,0.65); padding: 52px 28px 
 .inner-section { padding: 64px 28px; }
 .inner-section.alt { background: var(--bg-alt); }
 .inner-wrap { max-width: 1000px; margin: 0 auto; }
-.inner-wrap h2 { font-size: 28.6px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+.inner-wrap h2 { font-size: 19.8px; font-weight: 700; letter-spacing: -0.3px; margin: 32px 0 8px; color: rgb(33, 65, 139); }
+.inner-wrap h3 { font-size: 16.5px; font-weight: 700; margin: 24px 0 6px; color: rgb(33, 65, 139); }
+.inner-wrap p { font-size: 15.4px; color: var(--text-sec); line-height: 1.75; margin-bottom: 12px; }
 .inner-wrap .lead { font-size: 17.6px; color: var(--text-sec); line-height: 1.7; margin-bottom: 32px; }
 
 .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 0; }

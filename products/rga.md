@@ -84,19 +84,19 @@ related:
 
 troubleshooting:
   - q: "Analog scan only displays noise around 10 -9 Torr"
-    a: "Most likely the repeller cage is shorting to your vacuum chamber. The solution is to remove the repeller cage and operate without it. You can easily remove it by unscrewing it from the ionizer. Another possibility is that the filament is damaged. Measure the resistance between the filament supply and return pins of the feedthru flange (click here for picture ). A healthy filament will have a little less than an ohm of resistance. If you measure a very high resistance, the filament most likely needs replacing. You can order a replacement filament by clicking here . If the ionizer appears dirty or coated, you may wish to replace the whole ionizer (which includes the filament). You can order a replacement ionizer kit by clicking here ."
+    a: "Most likely the repeller cage is shorting to your vacuum chamber. The solution is to remove the repeller cage and operate without it. You can easily remove it by unscrewing it from the ionizer. Another possibility is that the filament is damaged. Measure the resistance between the filament supply and return pins of the feedthru flange (Contact SRS for assistance. A healthy filament will have a little less than an ohm of resistance. If you measure a very high resistance, the filament most likely needs replacing. You can order a replacement filament by Contact SRS for assistance. If the ionizer appears dirty or coated, you may wish to replace the whole ionizer (which includes the filament). You can order a replacement ionizer kit by Contact SRS for assistance."
   - q: "Analog scan looks noisy after replacing the filament and removing the repeller cage"
-    a: "Most likely your ionizer is contaminated and needs replacing. There are instructions in the manual on how to replace an ionizer. You can order a replacement ionizer kit by clicking here ."
+    a: "Most likely your ionizer is contaminated and needs replacing. There are instructions in the manual on how to replace an ionizer. You can order a replacement ionizer kit by Contact SRS for assistance."
   - q: "No communication with PC"
     a: "The most common problem is that a USB port is being used for communication along with an RS-232 to USB adapter that doesn't support 28.8 kBaud. Many RS-232 to USB adapters support 28.8 kBaud. One that many customers use is the UC232R-10 from FTDI (https://ftdichip.com/products/uc232r-10/)."
   - q: "When powering on an RGA300, a red warning indicator on the ECU lights, and a software message says mass range is limited"
-    a: "Click here to download a detailed explanation and solution."
+    a: "See the user manual or contact SRS support for a detailed explanation and solution."
   - q: "Operating the RGA with the filament turned off"
-    a: "Using the RGA Windows software, go to the HEAD menu and turn the filament off. Then proceed with taking data. The filament will be off until you turn it back on again. There is a hardware modification that can also be made to the RGA ECU that allows you to run without the filament. Click here to download instructions on the hardware modification."
+    a: "Using the RGA Windows software, go to the HEAD menu and turn the filament off. Then proceed with taking data. The filament will be off until you turn it back on again. There is a hardware modification that can also be made to the RGA ECU that allows you to run without the filament. See the user manual or contact SRS support for the hardware modification."
   - q: "Option 2 Built-in Power Module needs installing"
-    a: "Click here to download instructions on installing option 2."
+    a: "See the user manual or contact SRS support for installing option 2."
   - q: "Problem communicating over ethernet with a direct connection from my RGA (with ethernet option) to the TCP/IP port on my computer"
-    a: "Click here to download instructions on TCP/IP communication using a direct connection from your RGA to your computer."
+    a: "See the user manual or contact SRS support for TCP/IP communication using a direct connection from your RGA to your computer."
 ---
 
 The SRS RGA is a complete quadrupole mass spectrometer in a compact, flange-mounted package. Unlike older RGA designs that require a separate electronics chassis, the entire signal-processing electronics are housed inside the sensor head — you only need a USB or RS-232 cable to a PC.

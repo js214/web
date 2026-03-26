@@ -79,6 +79,16 @@ spec_groups:
     - 8 lbs.
   - - Warranty
     - One year parts and labor on defects in materials and workmanship
+
+resources:
+  - label: "PRS10 Dimensional Dwg."
+    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/RBoutline.pdf"
+
+related:
+  - label: "FS725 10 MHz Rubidium Frequency Standard"
+    url: "fs725.html"
+  - label: "PRS10 Rubidium Oscillator"
+    url: "prs10.html"
 ---
 
 Perfection is a high standard—but your studio clocks deserve nothing less. That's why we designed the PERF10, to offer audio professionals and demanding audiophiles a frequency reference of staggering accuracy and unmatched stability.

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Notice — Stanford Research Systems</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.svg" alt="SRS">
+    <span class="nav-logo-text">Stanford Research Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#products">Products</a></li>
+    <li><a href="index.html#support">Support</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="index.html#products" onclick="closeNav()">Products</a></li>
+    <li><a href="index.html#support" onclick="closeNav()">Support</a></li>
+    <li><a href="index.html#about" onclick="closeNav()">About</a></li>
+    <li><a href="index.html#contact" onclick="closeNav()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="s-tag">Legal</span>
+  <h1>Privacy Notice</h1>
+</div>
+
+<!-- CONTENT -->
+<section class="inner-section">
+  <div class="inner-wrap" style="max-width:800px">
+
+    <p>Stanford Research Systems is committed to respecting the privacy of our website users. Users will remain anonymous and are not required to reveal any personal information. Any information submitted will be used exclusively by SRS or our Representatives and will not be given to any third party.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We may automatically collect the following information about your use of our Site through cookies and other technologies: your domain name; your browser type and operating system; web pages you view; links you click; your IP address; the length of time you visit our Site and/or use our Services; and the referring URL, or the webpage that led you to our Site, and the following: access time, browser type, device ID, IP address, all data submitted by you, page views and referring URL.</p>
+
+    <h2>Our Use of Cookies</h2>
+    <p>Cookies are alphanumeric identifiers that are stored on your computer through your web browser for record-keeping purposes. Some cookies allow us to make it easier for you to navigate our Site and Services, while others are used to enable a faster log-in process or to allow us to track your activities at our Site and Service. There are two types of cookies: session and persistent cookies.</p>
+
+    <h3>Session Cookies</h3>
+    <p>Session cookies exist only during an online session. They disappear from your computer when you close your browser. We use session cookies to allow our systems to uniquely identify you during a session or while you are logged into the Site. This allows us to process your online transactions and requests and verify your identity, after you have logged in, as you move through our site.</p>
+
+    <h3>Persistent Cookies</h3>
+    <p>Persistent cookies remain on your computer after you have closed your browser or turned off your computer. We use persistent cookies to track aggregate and statistical information about user activity. Persistent cookies are set to expire two years after your last tracked action on our site.</p>
+
+    <h2>Third Party Cookies</h2>
+    <p>We may also engage third parties to track and analyze advertising conversions and for re-targeting purposes (i.e., re-advertise to people who visit our website). Such third parties may combine the information that we provide about you with other information that they have collected. This Policy does not cover third party use of the data.</p>
+
+    <h2>Disabling Cookies</h2>
+    <p>Most web browsers automatically accept cookies, but if you prefer, you can edit your browser options to block them in the future. The Help portion of the toolbar on most browsers will tell you how to prevent your computer from accepting new cookies, how to have the browser notify you when you receive a new cookie, or how to disable cookies altogether. Visitors to our Site who disable cookies will be able to browse certain areas of the Site, but some features may not function.</p>
+
+    <h2>Analytics</h2>
+    <p>We use automated applications, such as Google Analytics, to track our visitors and evaluate usage of our Site. We also may use other analytic means to evaluate our Services. We use these tools to help us improve our Services, performance and user experiences.</p>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+{% include '_footer.j2' %}
+
+<script>
+  function toggleNav() { document.getElementById('mobNav').classList.toggle('open'); }
+  function closeNav()  { document.getElementById('mobNav').classList.remove('open'); }
+</script>
+</body>
+</html>

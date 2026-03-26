@@ -45,14 +45,12 @@
 <section class="inner-section">
   <div class="inner-wrap" style="max-width:1100px">
 
-    {% set tab_groups = [('all','All'),('sci','Scientific'),('time','Time &amp; Freq'),('analytical','Analytical'),('test','Test &amp; Meas'),('vac','Vacuum')] %}
     <div class="filter-tabs">
-      {% for tid, tlabel in tab_groups %}
-      <button class="filter-tab{% if loop.first %} on{% endif %}" onclick="showDl('{{ tid }}')">{{ tlabel }}</button>
-      {% endfor %}
+      <button class="filter-tab on" onclick="showDl('all')">All</button>
+      {% for tid, tlabel in tab_labels %}{% if tid != 'new' %}
+      <button class="filter-tab" onclick="showDl('{{ tid }}')">{{ tlabel }}</button>
+      {% endif %}{% endfor %}
     </div>
-
-    <!-- ALL (shown by default) -->
 
     <!-- ALL -->
     <div class="dl-section on" id="dl-all">
@@ -61,7 +59,7 @@
         <tbody>
           {% for slug, p in products.items()|sort %}
           <tr>
-            <td class="dl-model">{{ p.model }}</td>
+            <td class="dl-model"><a href="products/{{ p.slug }}.html">{{ p.model }}</a></td>
             <td>{{ p.name }}</td>
             <td>{% if p.datasheet is defined and p.datasheet %}<a href="{{ p.datasheet }}" target="_blank" rel="noopener">PDF</a>{% endif %}</td>
             <td>{% if p.manual is defined and p.manual %}<a href="{{ p.manual }}" target="_blank" rel="noopener">PDF</a>{% endif %}</td>
@@ -71,15 +69,14 @@
       </table>
     </div>
 
-    {% set tab_defs = [('sci','Scientific'),('time','Time &amp; Freq'),('analytical','Analytical'),('test','Test &amp; Meas'),('vac','Vacuum')] %}
-    {% for tid, tlabel in tab_defs %}
+    {% for tid, tlabel in tab_labels %}{% if tid != 'new' %}
     <div class="dl-section" id="dl-{{ tid }}">
       <table class="dl-table">
         <thead><tr><th>Model</th><th>Name</th><th>Datasheet</th><th>Manual</th></tr></thead>
         <tbody>
-          {% for slug, p in products.items()|sort %}{% if p.tab == tid %}
+          {% for slug, p in products.items()|sort %}{% if slug_placement.get(slug, ('',''))[0] == tid %}
           <tr>
-            <td class="dl-model">{{ p.model }}</td>
+            <td class="dl-model"><a href="products/{{ p.slug }}.html">{{ p.model }}</a></td>
             <td>{{ p.name }}</td>
             <td>{% if p.datasheet is defined and p.datasheet %}<a href="{{ p.datasheet }}" target="_blank" rel="noopener">PDF</a>{% endif %}</td>
             <td>{% if p.manual is defined and p.manual %}<a href="{{ p.manual }}" target="_blank" rel="noopener">PDF</a>{% endif %}</td>
@@ -88,10 +85,9 @@
         </tbody>
       </table>
     </div>
-    {% endfor %}
+    {% endif %}{% endfor %}
 
   </div>
-</section>
 </section>
 
 <!-- FOOTER -->

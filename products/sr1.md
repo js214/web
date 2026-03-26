@@ -12,9 +12,9 @@ tile_desc: Two-channel audio analyzer with <−110 dBc THD+N for high-end audio 
 
 troubleshooting:
   - q: "Instrument is unresponsive to front-panel button presses"
-    a: "Try a power-up reset. Turn the power off, then while holding the Left Arrow (backspace) key down, turn the power back on. After two seconds release the Left Arrow (backspace) key. If this doesn't correct the problem the instrument will need to come back to SRS for service. Click here to get an RMA number."
+    a: "Try a power-up reset. Turn the power off, then while holding the Left Arrow (backspace) key down, turn the power back on. After two seconds release the Left Arrow (backspace) key. If this doesn't correct the problem the instrument will need to come back to SRS for service. Contact SRS for service."
   - q: "Problem communicating over ethernet with a direct connection from my SR1 to the TCP/IP port on my computer"
-    a: "Click here to download instructions on TCP/IP communication using a direct connection from your SR1 to your computer."
+    a: "See the user manual for instructions on TCP/IP communication using a direct connection from your SR1 to your computer."
 
 description_bullets:
 - Analog & digital domain measurements
@@ -252,6 +252,14 @@ spec_groups:
     - 24 kHz to 216 kHz
   - - Input Impedance
     - Hi Z or 110 (balanced) Hi Z or 75 (unbalanced)
+
+manual: "https://thinksrs.com/mult/sr1m.html"
+
+resources:
+- label: "What's New with SR1"
+  url: "https://thinksrs.com/downloads/pdfs/other%20stuff/What%27s%20new%20with%20SR1.pdf"
+- label: "SR1 Volatility Statement"
+  url: "https://thinksrs.com/downloads/pdfs/other%20stuff/Volatility%20Statement%20SR1.pdf"
 ---
 
 Introducing SR1 Dual-Domain Audio Analyzer—a high performance audio analysis at a very affordable price.

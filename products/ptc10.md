@@ -13,7 +13,7 @@ tile_desc: Flexible PID controller with up to six sensor inputs and four output 
 
 troubleshooting:
   - q: "Upgrading the firmware in the field"
-    a: "Click here to download the firmware upgrade procedure."
+    a: "Contact SRS support for assistance."
 
 description_bullets:
 - 16 input channels
@@ -189,6 +189,14 @@ spec_groups:
     - 50 μA
   - - 0 to 30 kΩ
     - 50 μA
+
+related:
+  - label: "CTC100 Cryogenic Temperature Controller"
+    url: "ctc100.html"
+  - label: "SIM921 AC Resistance Bridge"
+    url: "sim921.html"
+  - label: "SIM922 Diode Temperature Monitor"
+    url: "sim922.html"
 ---
 
 Introducing the PTC10 Programmable Temperature Controller from SRS—the ideal instrument for measuring temperature, controlling heaters, and logging temperature data.

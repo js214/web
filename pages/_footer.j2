@@ -6,17 +6,15 @@
         <p>Designing, manufacturing, and supporting precision scientific instruments since the early 1980s. Sunnyvale, California.</p>
       </div>
       <div class="foot-col">
-        <h4>Products</h4>
+        <h4><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','new');if(typeof showCat==='function')showCat('new')" style="color:inherit;text-decoration:none">Products</a></h4>
         <ul>
-          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','sci')">Scientific</a></li>
-          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','time')">Time &amp; Frequency</a></li>
-          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','analytical')">Analytical</a></li>
-          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','test')">Test &amp; Measurement</a></li>
-          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','vac')">Vacuum</a></li>
+          {% for tid, tlabel in tab_labels %}{% if tid != 'new' %}
+          <li><a href="{{ b }}index.html#products" onclick="sessionStorage.setItem('tab','{{ tid }}');if(typeof showCat==='function')showCat('{{ tid }}')">{{ tlabel }}</a></li>
+          {% endif %}{% endfor %}
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Support</h4>
+        <h4><a href="{{ b }}index.html#support" style="color:inherit;text-decoration:none">Support</a></h4>
         <ul>
           <li><a href="{{ b }}index.html#support">Tech Support</a></li>
           <li><a href="{{ b }}rma.html">Repair &amp; Calibration</a></li>
@@ -24,17 +22,17 @@
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Company</h4>
+        <h4><a href="{{ b }}index.html#about" style="color:inherit;text-decoration:none">Company</a></h4>
         <ul>
           <li><a href="{{ b }}index.html#about">About SRS</a></li>
           <li><a href="{{ b }}reps.html">Representatives</a></li>
-          <li><a href="https://thinksrs.com/downloads/pdfs/other%20stuff/Job%20Posting.pdf" target="_blank" rel="noopener">Careers</a></li>
+          <li><a href="{{ b }}index.html#careers">Careers</a></li>
           <li><a href="{{ b }}index.html#contact">Contact / Order</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bot">
-      <p>&copy; 2026 Stanford Research Systems, Inc. All rights reserved.</p>
+      <p>&copy; 2026 Stanford Research Systems, Inc. &bull; <a href="{{ b }}privacy.html" style="color:inherit">Privacy</a></p>
       <div class="foot-bot-links">
         <a href="tel:+14087449040">(408) 744-9040</a>
         <a href="mailto:info@thinkSRS.com">info@thinkSRS.com</a>
