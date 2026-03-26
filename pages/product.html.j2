@@ -121,6 +121,11 @@
       .phero-ctas { flex-direction: column; }
       .btn-buy { text-align: center; }
     }
+    .disc-block { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 6px; }
+    .disc-label { font-size: 13.2px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #b71c1c; }
+    .disc-successor { font-size: 14.3px; color: var(--text-sec); }
+    .disc-successor a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .disc-successor a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -174,11 +179,18 @@
       {% endif %}
       {% if tile_desc is defined and tile_desc %}<div class="phero-desc">{{ tile_desc }}</div>{% endif %}
       <div class="phero-purchase">
+        {% if discontinued is defined and discontinued %}
+        <div class="disc-block" style="grid-column:1/-1">
+          <div class="disc-label">Discontinued</div>
+          {% if successor_label is defined and successor_label %}<div class="disc-successor">See the <a href="{{ successor_url }}">{{ successor_label }}</a></div>{% endif %}
+        </div>
+        {% else %}
         <div class="price-block">
           <div class="price-label">List Price{% if price_prefix is defined and price_prefix %} — {{ price_prefix }}{% endif %}</div>
           <div class="price-val">{% if price is defined and price %}{{ price }}{% else %}Contact us{% endif %}</div>
         </div>
         <a href="../index.html#contact" class="purch-btn purch-btn-primary">Buy Now</a>
+        {% endif %}
       </div>
     </div>
     <div class="phero-media">
