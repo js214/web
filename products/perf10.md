@@ -91,8 +91,16 @@ related:
     url: "prs10.html"
 ---
 
-The PERF10 is engineered for audio professionals requiring exceptional frequency reference stability. It incorporates Stanford Research Systems' proprietary PRS10 rubidium oscillator.
+The PERF10 is engineered for audio professionals and audiophiles requiring exceptional frequency reference stability. It incorporates Stanford Research Systems' proprietary PRS10 rubidium oscillator.
 
-The device combines an oven-stabilized, third-overtone SC-cut crystal oscillator to deliver both atomic-level accuracy and superior jitter performance. It achieves phase noise approximately 30 dB superior at 10 Hz offset compared to competing rubidium clocks.
+### Rubidium Performance
 
-Eight rear-panel BNC connectors provide 10 MHz, 75 Ω outputs compatible with professional master clocks. Option 01 enables 12 VDC operation for redundant power setups.
+The device combines an oven-stabilized, third-overtone SC-cut crystal oscillator to deliver both atomic-level accuracy and superior jitter performance. Phase noise is approximately 30 dB superior at 10 Hz offset compared to competing rubidium clocks. Aging is less than 5 ppb over 10 years.
+
+### Outputs
+
+Eight rear-panel BNC connectors provide 10 MHz, 75 Ω outputs compatible with professional master clocks.
+
+### Redundant Power
+
+Option 01 enables operation from external 12 VDC power, supporting redundant operation where DC automatically substitutes during AC supply failure.

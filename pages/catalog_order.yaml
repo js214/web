@@ -1,12 +1,12 @@
 new:
   New Products:
+    - sr835
     - cg792
     - bga244
     - rga120
     - sr542
     - dc215
     - sim985
-    - sr835
 
 detect:
   Lock-In Amplifiers:

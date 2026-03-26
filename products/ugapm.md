@@ -111,8 +111,12 @@ related:
     url: "rga100.html"
 ---
 
-The UGAPM Process Monitor provides continuous gas composition monitoring for process environments.
+The UGAPM Process Monitor provides continuous gas composition monitoring for demanding process environments.
+
+### Real-Time Monitoring
 
 The instrument delivers real-time partial pressure measurements of multiple gas species simultaneously. A capillary inlet samples gas at or near atmospheric pressure for analysis by the internal quadrupole mass spectrometer.
 
-Windows monitoring software provides trending displays, alarm management, and data logging for unattended operation.
+### Software and Automation
+
+Windows monitoring software provides trending displays, alarm management, and data logging. The system can be configured for unattended operation with automatic alarm notification via relay outputs and software alerts.
