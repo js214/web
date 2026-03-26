@@ -99,6 +99,7 @@ section { padding: 96px 28px; }
 .pcard-price { font-size: 14.3px; font-weight: 700; color: var(--text); margin-top: 10px; letter-spacing: -0.3px; }
 .new-badge { display: inline-block; align-self: flex-start; background: #34c759; color: #000; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 980px; margin-bottom: 8px; }
 .disc-badge { display: inline-block; align-self: flex-start; background: #b71c1c; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 980px; margin-bottom: 8px; }
+.future-badge { display: inline-block; align-self: flex-start; background: #7b1fa2; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 980px; margin-bottom: 8px; }
 
 /* ── SUPPORT ── */
 #support { background: var(--bg); }

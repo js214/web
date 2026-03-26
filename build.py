@@ -179,6 +179,20 @@ def build(slug: str | None = None):
                 shutil.copy2(f, dest)
                 print(f"  copied: images/instr/{rel}")
 
+    # --- PDFs (datasheets, manuals, app_notes) ---
+    for dirname in ("datasheets", "manuals", "app_notes"):
+        src = ROOT / dirname
+        if src.exists():
+            dst = DIST / dirname
+            dst.mkdir(parents=True, exist_ok=True)
+            for f in src.rglob("*"):
+                if f.is_file():
+                    rel = f.relative_to(src)
+                    dest = dst / rel
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(f, dest)
+                    print(f"  copied: {dirname}/{rel}")
+
     # --- Render all *.html.j2 pages (excluding product.html.j2 template) ---
     skip = {"product.html.j2"}
     for j2 in sorted(PAGES_DIR.glob("*.html.j2")):

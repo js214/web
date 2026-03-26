@@ -6,6 +6,7 @@ new:
     - sr542
     - dc215
     - sim985
+    - sr835
 
 detect:
   Lock-In Amplifiers:
