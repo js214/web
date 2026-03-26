@@ -180,23 +180,16 @@ def build(slug: str | None = None):
                 print(f"  copied: images/instr/{rel}")
 
     # --- Simulator (WASM app) ---
-    sim_src = ROOT / "sim" / "gui" / "target" / "wasm" / "wasm32-unknown-emscripten" / "release"
+    sim_src = ROOT / "sim"
     if sim_src.exists():
         sim_dst = DIST / "sim"
-        sim_files = {"index.html", "gui.js", "gui.wasm", "style.css", "lexan.svg"}
-        for f in sim_src.iterdir():
-            if f.is_file() and f.name in sim_files:
-                sim_dst.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(f, sim_dst / f.name)
-                print(f"  copied: sim/{f.name}")
-        fonts_src = sim_src / "fonts"
-        if fonts_src.exists():
-            fonts_dst = sim_dst / "fonts"
-            fonts_dst.mkdir(parents=True, exist_ok=True)
-            for f in fonts_src.iterdir():
-                if f.is_file():
-                    shutil.copy2(f, fonts_dst / f.name)
-                    print(f"  copied: sim/fonts/{f.name}")
+        for f in sim_src.rglob("*"):
+            if f.is_file():
+                rel = f.relative_to(sim_src)
+                dest = sim_dst / rel
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(f, dest)
+                print(f"  copied: sim/{rel}")
 
     # --- PDFs (datasheets, manuals, app_notes) ---
     for dirname in ("datasheets", "manuals", "app_notes"):

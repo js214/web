@@ -1,5 +1,7 @@
 *.pyc
+*.bak
+
 .claude
 dist/
 __pycache__/
-*.bak
+sim
