@@ -111,4 +111,8 @@ related:
     url: "rga100.html"
 ---
 
-The UGAPM Series Process Monitoring Systems are modern mass spectrometers designed for the analysis of process gases. They operate from 20 Torr to 1 mTorr. The inlet continuously samples gases at low flow rates (about 5x10 -5 mbar L/sec) making the instrument ideal for on-line analysis .
+The UGAPM Process Monitor provides continuous gas composition monitoring for process environments.
+
+The instrument delivers real-time partial pressure measurements of multiple gas species simultaneously. A capillary inlet samples gas at or near atmospheric pressure for analysis by the internal quadrupole mass spectrometer.
+
+Windows monitoring software provides trending displays, alarm management, and data logging for unattended operation.

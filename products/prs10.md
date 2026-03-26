@@ -128,4 +128,6 @@ related:
     url: "fs740.html"
 ---
 
-The PRS10 is an ultra-low phase noise, 10 MHz rubidium-disciplined crystal oscillator. The device fulfills a variety of communication, synchronization, and instrumentation requirements. The phase noise of the 10 MHz output is low enough to be used as the reference source for synthesizers. The unit's short-term stability and low environmental coefficients make it an ideal component for network synchronization. Its low aging rate makes it an excellent timebase for precision frequency measurements.
+The PRS10 is a compact rubidium oscillator module for OEM integration.
+
+The module provides a 10 MHz output with accuracy of ±5 × 10⁻¹¹ and aging less than 5 × 10⁻¹¹ per month. The compact package (3.4 × 3.25 × 6.0 inches) and low power (15 W) make it suitable for embedding in other instruments. RS-232 provides access to all oscillator parameters.

@@ -199,4 +199,28 @@ related:
     url: "sim922.html"
 ---
 
-Introducing the PTC10 Programmable Temperature Controller from SRS—the ideal instrument for measuring temperature, controlling heaters, and logging temperature data.
+The PTC10 is a modular temperature measurement and control system designed for measuring temperature, controlling heaters, and logging temperature data. The system comprises a main controller plus interchangeable I/O cards for different sensor and output types.
+
+### Temperature Control
+
+The system supports up to six independent PID feedback loops with 50 Hz sampling. Auto-tuning employs either single-step response or relay tuning methods to establish optimal control parameters. Temperature resolution is better than 0.001 °C.
+
+### Display and Monitoring
+
+A 320 × 240 pixel touchscreen provides both numerical and graphical data displays. Users can plot up to eight separate graphs, each incorporating up to eight data channels, with zoom and pan capabilities via touch interface.
+
+### Data Logging
+
+Internal storage accommodates up to 1 million points per channel. External logging to USB devices extends capacity. Logging intervals range from 0.1 seconds to 1 hour per channel.
+
+### Alarms and Safety
+
+Upper/lower temperature limits and rate-of-change thresholds can trigger audible alarms, relay closures, and automatic output shutdown.
+
+### Programmability
+
+User-defined macros support conditional statements, variables, loops, and simultaneous execution of up to ten macros.
+
+### Connectivity
+
+USB, Ethernet, RS-232 and GPIB interfaces enable remote operation. Four configurable analog channels function as either 24-bit inputs or 16-bit outputs (±10 V). Eight digital I/O lines and four relays provide additional control.
