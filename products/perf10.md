@@ -1,9 +1,9 @@
 ---
-datasheet: https://thinksrs.com/downloads/pdfs/catalog/PERF10c.pdf
+datasheet: "datasheets/PERF10c.pdf"
 
 image: images/instr/perf10/PERF10_FP.jpg
 
-manual: https://thinksrs.com/downloads/pdfs/manuals/PERF10m.pdf
+manual: "manuals/PERF10m.pdf"
 
 model: PERF10
 name: Audio Atomic Clock

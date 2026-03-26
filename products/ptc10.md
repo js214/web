@@ -1,9 +1,9 @@
 ---
-datasheet: https://thinksrs.com/downloads/pdfs/catalog/PTC10c.pdf
+datasheet: "datasheets/PTC10c.pdf"
 
 image: images/instr/ptc10/PTC10 MainPic.jpg
 
-manual: https://thinksrs.com/downloads/pdfs/manuals/PTC10m.pdf
+manual: "manuals/PTC10m.pdf"
 
 model: PTC10
 name: Programmable Temperature Controller

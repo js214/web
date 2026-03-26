@@ -1,5 +1,5 @@
 ---
-datasheet: https://thinksrs.com/downloads/pdfs/catalog/SR1c.pdf
+datasheet: "datasheets/SR1c.pdf"
 
 image: images/instr/sr1/SR1 MainPic.jpg
 
