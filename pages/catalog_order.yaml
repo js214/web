@@ -10,6 +10,7 @@ new:
 
 detect:
   Lock-In Amplifiers:
+    - sr835
     - sr865a
     - sr860
     - sr844
