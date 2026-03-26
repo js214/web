@@ -232,8 +232,8 @@
     {% if related is defined and related %}<a href="#sec-related">Related Products</a>{% endif %}
     {% set ds = datasheet if datasheet is defined else "" %}
     {% set mn = manual if manual is defined else "" %}
-    {% if ds %}<a href="{{ ds }}" target="_blank" rel="noopener">Datasheet</a>{% endif %}
-    {% if mn %}<a href="{{ mn }}" target="_blank" rel="noopener">Manual</a>{% endif %}
+    {% if ds %}{% set ds_href = ds if ds.startswith('http') else '../' + ds %}<a href="{{ ds_href }}" target="_blank" rel="noopener">Datasheet</a>{% endif %}
+    {% if mn %}{% set mn_href = mn if mn.startswith('http') else '../' + mn %}<a href="{{ mn_href }}" target="_blank" rel="noopener">Manual</a>{% endif %}
   </div>
 </nav>
 
