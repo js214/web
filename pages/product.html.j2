@@ -320,7 +320,9 @@
   }
   function openLB(src) {
     buildLBSrcs();
-    lbIdx = lbSrcs.indexOf(src);
+    // Resolve relative path to absolute for comparison
+    var a = document.createElement('a'); a.href = src; var abs = a.href;
+    lbIdx = lbSrcs.indexOf(abs);
     if (lbIdx < 0) lbIdx = 0;
     document.getElementById('lb-img').src = src;
     document.getElementById('lb').classList.add('open');
