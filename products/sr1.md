@@ -27,6 +27,7 @@ description_bullets:
 - Dual-Channel FFTs
 
 price: $16950
+buy_url: "https://thinksrs.com/mult/sr1ec.html"
 
 quick_specs:
 - label: Amplitude Range (rms)

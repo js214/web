@@ -194,7 +194,8 @@
           <div class="price-label">List Price{% if price_prefix is defined and price_prefix %} — {{ price_prefix }}{% endif %}</div>
           <div class="price-val">{% if price is defined and price %}{{ price }}{% else %}Contact us{% endif %}</div>
         </div>
-        <a href="../index.html#contact" class="purch-btn purch-btn-primary">Buy Now</a>
+        {% set order_url = buy_url if buy_url is defined and buy_url else 'https://orders.thinksrs.com/OnlineOrders/SRSOrders.html?EPrdGrp=' + model.split('/')[0].strip().replace(' ', '') %}
+        <a href="{{ order_url }}" target="_blank" rel="noopener" class="purch-btn purch-btn-primary">Buy Now</a>
         {% endif %}
       </div>
     </div>
