@@ -127,11 +127,17 @@
   if (footerTab) { sessionStorage.removeItem('tab'); showCat(footerTab); }
   if (footerGroup) {
     sessionStorage.removeItem('group');
-    var target = document.getElementById(footerGroup);
-    if (target) {
-      var navH = (document.querySelector('nav') || {}).offsetHeight || 60;
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH - 12, behavior: 'instant' });
-    }
+    // Defer scroll until after showCat layout settles
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        var target = document.getElementById(footerGroup);
+        if (target) {
+          var navH = (document.querySelector('nav') || {}).offsetHeight || 60;
+          var tabsH = (document.querySelector('.tabs') || {}).offsetHeight || 50;
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH - tabsH - 12, behavior: 'instant' });
+        }
+      });
+    });
   }
 })();
 </script>
