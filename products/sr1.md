@@ -26,7 +26,7 @@ description_bullets:
 - ≤600 ps jitter (50 Hz to 100 kHz)
 - Dual-Channel FFTs
 
-price: $16,950
+price: $16950
 
 quick_specs:
 - label: Amplitude Range (rms)

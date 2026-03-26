@@ -20,7 +20,7 @@ description_bullets:
 - System bakeout
 - Sample line heating
 
-price: $37,500
+price: $37500
 
 quick_specs:
 - label: Type

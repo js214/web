@@ -167,7 +167,7 @@
   <div class="phero-inner">
     <div class="phero-text">
       {% if group_display is defined and group_display %}<a class="s-tag" href="../index.html" onclick="sessionStorage.setItem('tab','{{ primary_tab }}');sessionStorage.setItem('group','group-{{ group_display | slugify }}')">{{ group_display }}</a>{% endif %}
-      <div class="phero-model">{{ model }}</div>
+      <div class="phero-model">{{ model }}{% if future is defined and future %} <span class="future-badge">Future</span>{% elif is_new is defined and is_new %} <span class="new-badge">New</span>{% endif %}</div>
       <div class="phero-name">{{ name }}</div>
       {% if description_bullets is defined and description_bullets %}
       <ul class="phero-bullets">
@@ -183,6 +183,12 @@
           <div class="disc-label">Discontinued</div>
           {% if successor_label is defined and successor_label %}<div class="disc-successor">See the <a href="{{ successor_url }}">{{ successor_label }}</a></div>{% endif %}
         </div>
+        {% elif future is defined and future %}
+        <div class="price-block">
+          <div class="price-label">List Price</div>
+          <div class="price-val">{% if price is defined and price %}{{ price }}{% else %}TBD{% endif %}</div>
+        </div>
+        <a href="http://localhost:8001/" target="_blank" rel="noopener" class="purch-btn purch-btn-primary" style="background:#7b1fa2">Try Now</a>
         {% else %}
         <div class="price-block">
           <div class="price-label">List Price{% if price_prefix is defined and price_prefix %} — {{ price_prefix }}{% endif %}</div>

@@ -5,8 +5,7 @@
   <a class="pcard-link" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %} aria-label="{{ p.model }} product page"></a>
   {% if p.image is defined and p.image %}<div class="pcard-img"><img src="{{ p.image }}" alt="{{ p.model }}" loading="lazy"></div>{% endif %}
   <div class="pcard-body">
-    {% if p.slug in new_slugs %}<span class="new-badge">New</span>{% endif %}
-    {% if p.future is defined and p.future %}<span class="future-badge">Future</span>{% endif %}
+    {% if p.future is defined and p.future %}<span class="future-badge">Future</span>{% elif p.slug in new_slugs %}<span class="new-badge">New</span>{% endif %}
     {% if p.slug in discontinued_slugs %}<span class="disc-badge">Discontinued</span>{% endif %}
     <div class="pmodel">{{ p.model }}</div>
     <div class="pname">{{ p.name }}</div>

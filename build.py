@@ -236,6 +236,7 @@ def build(slug: str | None = None):
             data["primary_tab"] = placement[0]
             data["group_display"] = placement[1]
         data["tab_labels"] = TAB_LABELS
+        data["is_new"] = data["slug"] in new_slugs
         out_name = f"{data['slug']}.html"
         html = tmpl.render(**data)
         (prod_dir / out_name).write_text(html, encoding="utf-8")
