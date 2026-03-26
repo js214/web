@@ -64,7 +64,7 @@ generate:
 analyze:
   Residual Gas Analyzers:
     - rga120
-    - rga
+    - rga100
   Atmospheric & Process Gas Analyzers:
     - bga244
     - uga120

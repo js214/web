@@ -108,7 +108,7 @@ related:
   - label: "UGA120 Leak Detector / Gas Analyzer"
     url: "uga120.html"
   - label: "RGA Residual Gas Analyzers"
-    url: "rga.html"
+    url: "rga100.html"
 ---
 
 The UGAPM Series Process Monitoring Systems are modern mass spectrometers designed for the analysis of process gases. They operate from 20 Torr to 1 mTorr. The inlet continuously samples gases at low flow rates (about 5x10 -5 mbar L/sec) making the instrument ideal for on-line analysis .

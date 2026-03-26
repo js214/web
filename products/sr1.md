@@ -270,13 +270,13 @@ The SR1 runs Windows XP embedded, offering familiar operation via external perip
 
 ### Analog Signal Generator
 
-![SR1 Generators](images/instr/sr1/Generatorslg.jpg)
+![SR1 Generators](../images/instr/sr1/Generatorslg.jpg)
 
 At the heart of SR1 is a uniquely flexible analog signal generator supporting standard waveforms including sine, chirp, burst sine, noise variants, intermodulation test signals, square waves, and arbitrary waveforms. Multiple waveforms combine for unlimited test possibilities. Performance metrics include ±0.008 dB flatness (20 Hz to 20 kHz) and residual THD+N of −106 dB. Multitone waveforms accommodate up to 50 tones with real-time calculation, while FFT Chirp automatically synchronizes with the FFT analyzer.
 
 ### Digital Audio Signal Generator
 
-![SR1 Digital I/O](images/instr/sr1/DigIOlg.jpg)
+![SR1 Digital I/O](../images/instr/sr1/DigIOlg.jpg)
 
 Nearly all analog waveforms appear in the digital generator with additional digital test waveforms. Output sampling adjusts continuously from 24 kHz to 216 kHz across single and dual connectors. Complete control extends to status bits, user bits, and validity bits. Carrier impairments include variable rise time, common mode sine waves, normal mode noise, and multiple jitter waveforms.
 
@@ -294,7 +294,7 @@ SR1 provides a complete set of measurements for digital interface testing. Direc
 
 ### Eye Diagram
 
-![SR1 Eye Diagram](images/instr/sr1/NewEyeDiagramlg.gif)
+![SR1 Eye Diagram](../images/instr/sr1/NewEyeDiagramlg.gif)
 
 An optional 80 MHz transient digitizer (opt. 01) processes up to 2M samples, computing time records, spectra, jitter analysis, and probability distributions. Full-color eye diagrams support user-configurable limits for straightforward carrier testing.
 
