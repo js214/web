@@ -1,7 +1,7 @@
 ---
 datasheet: https://thinksrs.com/downloads/pdfs/catalog/PERF10c.pdf
 group: Audio Instruments
-image: https://thinksrs.com/images/instr/perf10/PERF10_FP.jpg
+image: images/instr/perf10/PERF10_FP.jpg
 is_new: false
 manual: https://thinksrs.com/downloads/pdfs/manuals/PERF10m.pdf
 model: PERF10

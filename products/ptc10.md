@@ -1,7 +1,7 @@
 ---
 datasheet: https://thinksrs.com/downloads/pdfs/catalog/PTC10c.pdf
 group: Temperature Controllers
-image: https://thinksrs.com/images/instr/ptc10/PTC10%20MainPic.jpg
+image: images/instr/ptc10/PTC10 MainPic.jpg
 is_new: false
 manual: https://thinksrs.com/downloads/pdfs/manuals/PTC10m.pdf
 model: PTC10

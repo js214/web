@@ -10,7 +10,7 @@
     .phero-inner {
       max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch;
-      padding-bottom: 52px; border-bottom: 1px solid var(--border);
+      padding-bottom: 52px;
     }
     .phero-text { display: flex; flex-direction: column; }
     .phero-text .s-tag { display: block; margin-bottom: 10px; text-decoration: none; }
@@ -24,7 +24,7 @@
     .phero-media { display: flex; flex-direction: column; gap: 0; }
     .phero-main-img { flex: 1; min-height: 150px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .phero-main-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .phero-purchase { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; padding-top: 40px; }
+    .phero-purchase { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; padding-top: 12px; min-height: 160px; align-content: center; }
     .price-block { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     .price-label { font-size: 12.1px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-sec); margin-bottom: 2px; }
     .price-val { font-size: 30.8px; font-weight: 700; letter-spacing: -1px; color: var(--text); line-height: 1; }
@@ -52,10 +52,10 @@
     .pdesc-inner li { font-size: 15.4px; color: var(--text-sec); padding-left: 16px; position: relative; }
     .pdesc-inner li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
 
-    .page-nav { background: #fff; border-bottom: 1px solid var(--border); padding: 0 28px; position: sticky; top: 52px; z-index: 100; }
-    .page-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; }
-    .page-nav a { font-size: 14.3px; font-weight: 500; color: var(--text-sec); text-decoration: none; padding: 14px 20px; border-bottom: 2px solid transparent; transition: color var(--t), border-color var(--t); white-space: nowrap; }
-    .page-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .page-nav { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 6px 28px; position: sticky; top: 52px; z-index: 100; height: auto; }
+    .page-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 4px 0; }
+    .page-nav a { font-size: 14.3px; font-weight: 500; color: var(--text-sec); text-decoration: none; padding: 10px 20px; transition: color var(--t); white-space: nowrap; }
+    .page-nav a:hover { color: var(--accent); }
 
     .featuresec, .specsec, .tsec { scroll-margin-top: 98px; }
     .featuresec { padding: 56px 28px; background: var(--bg-alt); border-top: 1px solid var(--border); }
@@ -115,7 +115,6 @@
     .lightbox-close { position: absolute; top: 20px; right: 28px; font-size: 35.2px; color: #fff; cursor: pointer; line-height: 1; user-select: none; }
     @media (max-width: 768px) {
       .phero-inner { grid-template-columns: 1fr; gap: 28px; }
-      .phero-media { order: -1; }
       .price-val { font-size: 33px; }
     }
     @media (max-width: 480px) {
@@ -205,8 +204,8 @@
         {% set fp = panels[0] if panels[0].startswith('http') else '../' + panels[0] %}
         {% set rp = panels[1] if panels|length > 1 and panels[1].startswith('http') else ('../' + panels[1] if panels|length > 1 else '') %}
         {% else %}
-        {% set fp = 'https://thinksrs.com/images/instr/' + slug + '/' + model + '_FPlg.jpg' %}
-        {% set rp = 'https://thinksrs.com/images/instr/' + slug + '/' + model + '_RPlg.jpg' %}
+        {% set fp = '../images/instr/' + slug + '/' + model + '_FPlg.jpg' %}
+        {% set rp = '../images/instr/' + slug + '/' + model + '_RPlg.jpg' %}
         {% endif %}
         <img src="{{ fp }}" alt="{{ model }} front panel" loading="lazy" onclick="openLB('{{ fp }}')" onerror="this.parentElement.style.display='none'">
         {% if rp %}<img src="{{ rp }}" alt="{{ model }} rear panel" loading="lazy" onclick="openLB('{{ rp }}')" onerror="this.parentElement.removeChild(this)">{% endif %}
@@ -312,7 +311,7 @@
 <script>
   var lbSrcs = [], lbIdx = 0;
   function buildLBSrcs() {
-    lbSrcs = Array.from(document.querySelectorAll('.phero-main-img img, .phero-panel-imgs img')).map(function(i){return i.src;});
+    lbSrcs = [...new Set(Array.from(document.querySelectorAll('.phero-main-img img, .phero-panel-imgs img')).map(function(i){return i.src;}))];
   }
   function openLB(src) {
     buildLBSrcs();

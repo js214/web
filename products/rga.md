@@ -11,7 +11,7 @@ price: "from $3,900"
 price_prefix: "Starting From"
 price_note: "FOB Sunnyvale, CA"
 tile_desc: "Ultra-compact quadrupole mass spectrometer. All electronics in the sensor head — no separate chassis required."
-image: "https://thinksrs.com/images/instr/rga/RGA_Wide.jpg"
+image: "images/instr/rga/RGA_Wide.jpg"
 datasheet: "https://thinksrs.com/downloads/pdfs/catalog/RGAc.pdf"
 manual: "https://thinksrs.com/downloads/pdfs/manuals/RGAm.pdf"
 

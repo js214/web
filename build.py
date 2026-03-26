@@ -212,6 +212,18 @@ def build(slug: str | None = None):
     # --- Asset directories ---
     copy_dir(IMAGES_DIR, DIST / "images")
 
+    # --- Instrument images (recursive) ---
+    instr_src = IMAGES_DIR / "instr"
+    if instr_src.exists():
+        instr_dst = DIST / "images" / "instr"
+        for f in instr_src.rglob("*"):
+            if f.is_file() and f.suffix != '.bak':
+                rel = f.relative_to(instr_src)
+                dest = instr_dst / rel
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(f, dest)
+                print(f"  copied: images/instr/{rel}")
+
     # --- Render all *.html.j2 pages (excluding product.html.j2 template) ---
     skip = {"product.html.j2"}
     for j2 in sorted(PAGES_DIR.glob("*.html.j2")):

@@ -1,7 +1,7 @@
 ---
 datasheet: https://thinksrs.com/downloads/pdfs/catalog/SR1c.pdf
 group: Audio Instruments
-image: https://thinksrs.com/images/instr/sr1/SR1%20MainPic.jpg
+image: images/instr/sr1/SR1 MainPic.jpg
 is_new: false
 model: SR1
 name: Audio Analyzer
