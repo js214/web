@@ -21,49 +21,16 @@ PRODUCTS_DIR   = ROOT / "products"
 PAGES_DIR      = ROOT / "pages"
 IMAGES_DIR     = ROOT / "images"
 DIST           = ROOT / "dist"
-
-TAB_ORDER = ["new", "sci", "time", "analytical", "test", "vac"]
+CATALOG_ORDER  = ROOT / "pages" / "catalog_order.yaml"
 
 TAB_LABELS = [
-    ("new",        "New"),
-    ("sci",        "Scientific"),
-    ("time",       "Time &amp; Frequency"),
-    ("analytical", "Analytical"),
-    ("test",       "Test &amp; Measurement"),
-    ("vac",        "Vacuum"),
+    ("new",         "New"),
+    ("detect",      "Detect"),
+    ("generate",    "Generate"),
+    ("analyze",     "Analyze"),
+    ("control",     "Control"),
+    ("synchronize", "Synchronize"),
 ]
-
-GROUP_ORDER = {
-    "sci": [
-        "Lock-In Amplifiers",
-        "Preamplifiers",
-        "Temperature Controllers",
-        "Voltage & Current Sources",
-        "Laser Diode Controllers",
-        "Optical Instruments",
-        "Digital Delay & Pulse Generators",
-        "High Voltage Power Supplies",
-        "Boxcar Averagers & Photon Counters",
-        "SIM Modular Instrument System",
-    ],
-    "time": [
-        "Frequency Standards & Oscillators",
-        "Distribution Amplifiers",
-        "Frequency Counters",
-    ],
-    "analytical": ["Analytical Instruments"],
-    "test": [
-        "RF Signal Generators",
-        "Function & Clock Generators",
-        "FFT Spectrum Analyzers",
-        "Audio Instruments",
-        "LCR Meters & Monitors",
-    ],
-    "vac": [
-        "Residual Gas Analyzers",
-        "Atmospheric & Process Gas Analyzers",
-    ],
-}
 
 
 def process_figures(html: str) -> str:
@@ -124,52 +91,29 @@ def validate_hero_density(data: dict):
         )
 
 
-def organize_by_tab(products: dict) -> OrderedDict:
-    """Return OrderedDict: tab_id -> [(group_name, [sorted products])]"""
-    buckets: dict[str, dict[str, list]] = {t: {} for t in TAB_ORDER if t != "new"}
-
-    for p in products.values():
-        # tabs can be a list (multi-tab product) or single string
-        tabs = p.get("tabs") or [p.get("tab", "sci")]
-        if isinstance(tabs, str):
-            tabs = [tabs]
-
-        # groups can be a dict {tab: group_name} or use the single 'group' field
-        groups_map = p.get("groups") or {}
-        primary_group = p.get("group", "")
-
-        for tab in tabs:
-            if tab == "new":
-                continue
-            group = groups_map.get(tab, primary_group) if isinstance(groups_map, dict) else primary_group
-            buckets.setdefault(tab, {})
-            buckets[tab].setdefault(group, [])
-            buckets[tab][group].append(p)
-
+def organize_by_tab(products: dict, catalog_order: dict) -> OrderedDict:
+    """Return OrderedDict: tab_id -> [(group_name, [products])] using catalog_order.yaml."""
     result = OrderedDict()
+    seen_slugs = set()
 
-    # "New" tab: all is_new products sorted by sort field
-    new_products = sorted(
-        [p for p in products.values() if p.get("is_new")],
-        key=lambda p: p.get("sort", 999),
-    )
-    result["new"] = [("New Products", new_products)]
+    for tab_id, groups in catalog_order.items():
+        tab_groups = []
+        for group_name, slugs in groups.items():
+            prods = []
+            for slug in slugs:
+                if slug in products:
+                    prods.append(products[slug])
+                    seen_slugs.add(slug)
+                else:
+                    print(f"  warning: {slug} in catalog_order.yaml but no .md file found")
+            if prods:
+                tab_groups.append((group_name, prods))
+        result[tab_id] = tab_groups
 
-    for tab in TAB_ORDER:
-        if tab == "new":
-            continue
-        tab_groups = buckets.get(tab, {})
-        ordered = []
-        defined_order = GROUP_ORDER.get(tab, [])
-        for gname in defined_order:
-            if gname in tab_groups:
-                prods = sorted(tab_groups[gname], key=lambda p: p.get("sort", 999))
-                ordered.append((gname, prods))
-        # Append any groups not explicitly listed in GROUP_ORDER
-        for gname, prods in tab_groups.items():
-            if gname not in defined_order:
-                ordered.append((gname, sorted(prods, key=lambda p: p.get("sort", 999))))
-        result[tab] = ordered
+    # Warn about products not in catalog_order
+    for slug in products:
+        if slug not in seen_slugs:
+            print(f"  warning: {slug}.md exists but is not listed in catalog_order.yaml")
 
     return result
 
@@ -194,7 +138,18 @@ def build(slug: str | None = None):
         data = parse_md(md_file)
         all_products[data["slug"]] = data
 
-    tabs_by_group = organize_by_tab(all_products)
+    catalog_order = yaml.safe_load(CATALOG_ORDER.read_text(encoding="utf-8"))
+    tabs_by_group = organize_by_tab(all_products, catalog_order)
+
+    # Build slug -> (primary_tab, group_name) from catalog_order (skip "new" tab)
+    slug_placement = {}
+    for tab_id, groups in catalog_order.items():
+        if tab_id == "new":
+            continue
+        for group_name, slugs in groups.items():
+            for s in slugs:
+                if s not in slug_placement:
+                    slug_placement[s] = (tab_id, group_name)
 
     def slugify(s):
         s = s.lower()
@@ -231,10 +186,17 @@ def build(slug: str | None = None):
             continue
         out_name = j2.name[:-3]
         tmpl = env.get_template(j2.name)
+        # Collect new and discontinued slugs
+        new_slugs = set()
+        for group_slugs in catalog_order.get("new", {}).values():
+            new_slugs.update(group_slugs)
+        discontinued_slugs = {s for s, p in all_products.items() if p.get("discontinued")}
         html = tmpl.render(
             products=all_products,
             tabs_by_group=tabs_by_group,
             tab_labels=TAB_LABELS,
+            new_slugs=new_slugs,
+            discontinued_slugs=discontinued_slugs,
         )
         (DIST / out_name).write_text(html, encoding="utf-8")
         print(f"  built:  {out_name}")
@@ -253,6 +215,11 @@ def build(slug: str | None = None):
     for md_file in files:
         data = all_products[md_file.stem]
         validate_hero_density(data)
+        # Inject tab/group from catalog_order (overrides any .md fields)
+        placement = slug_placement.get(data["slug"])
+        if placement:
+            data["primary_tab"] = placement[0]
+            data["group_display"] = placement[1]
         out_name = f"{data['slug']}.html"
         html = tmpl.render(**data)
         (prod_dir / out_name).write_text(html, encoding="utf-8")

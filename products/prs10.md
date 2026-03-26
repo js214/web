@@ -1,12 +1,12 @@
 ---
 group: Frequency Standards & Oscillators
-is_new: false
+
 model: PRS10
 name: Rubidium Oscillator Module
 slug: prs10
+
 image: "images/prs10_web.jpg"
-sort: 20
-tab: time
+
 tile_desc: Compact, low-power rubidium oscillator for OEM and embedded precision timing
   applications.
 
@@ -20,8 +20,9 @@ description_bullets:
 - 72 hour Stratum 1 level holdover
 - RS-232 for diagnostics & control
 - 20 year lamp life
+
 price: $1895
-price_note: FOB Sunnyvale, CA
+
 quick_specs:
 - label: Output frequency
   value: 10 MHz sine wave
@@ -35,6 +36,7 @@ quick_specs:
   value: <-25 dBc
 - label: Return loss
   value: '>25 dB @ 10 MHz'
+
 spec_groups:
 - name: Output
   rows:

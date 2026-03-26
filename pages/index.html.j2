@@ -5,7 +5,8 @@
   <a class="pcard-link" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %} aria-label="{{ p.model }} product page"></a>
   {% if p.image is defined and p.image %}<div class="pcard-img"><img src="{{ p.image }}" alt="{{ p.model }}" loading="lazy"></div>{% endif %}
   <div class="pcard-body">
-    {% if p.is_new is defined and p.is_new %}<span class="new-badge">New</span>{% endif %}
+    {% if p.slug in new_slugs %}<span class="new-badge">New</span>{% endif %}
+    {% if p.slug in discontinued_slugs %}<span class="disc-badge">Discontinued</span>{% endif %}
     <div class="pmodel">{{ p.model }}</div>
     <div class="pname">{{ p.name }}</div>
     <div class="pdesc">{{ p.tile_desc if p.tile_desc is defined else p.desc }}</div>
@@ -17,7 +18,7 @@
       {% if mn %}<a href="{{ mn }}" target="_blank" rel="noopener">Manual</a>{% endif %}
     </div>
     {% endif %}
-    {% if p.price is defined and p.price %}<div class="pcard-price">{{ p.price }}</div>{% endif %}
+    {% if p.price is defined and p.price and p.slug not in discontinued_slugs %}<div class="pcard-price">{{ p.price }}</div>{% endif %}
   </div>
 </div>
 {% endmacro %}
@@ -37,6 +38,23 @@
     var c = document.getElementById(id); if (c) c.classList.add('on');
     var b = document.querySelector('[data-cat="' + id + '"]'); if (b) b.classList.add('on');
     sessionStorage.setItem('activeTab', id);
+    // Scroll only if the first group header is not visible
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        if (c) {
+          var first = c.querySelector('.pgroup-title');
+          if (first) {
+            var navH = (document.querySelector('nav') || {}).offsetHeight || 52;
+            var tabsH = (document.querySelector('.tabs') || {}).offsetHeight || 50;
+            var stickyH = navH + tabsH + 12;
+            var r = first.getBoundingClientRect();
+            if (r.top < stickyH || r.bottom > window.innerHeight) {
+              window.scrollTo({ top: r.top + window.scrollY - stickyH, behavior: 'smooth' });
+            }
+          }
+        }
+      });
+    });
   }
 </script>
 
@@ -78,7 +96,6 @@
     <button class="tab{% if loop.first %} on{% endif %}" data-cat="{{ tid }}" onclick="showCat('{{ tid }}')">{{ tlabel }}</button>
     {% endfor %}
   </div>
-</section>
 
 <!-- PRODUCT GRIDS -->
 <div class="product-grids">
@@ -97,6 +114,7 @@
     {% endfor %}
   </div>
 </div>
+</section>
 <script>
 (function() {
   var navEntry = performance.getEntriesByType('navigation')[0];
@@ -255,6 +273,33 @@
 <script>
   function toggleNav() { document.getElementById('mobNav').classList.toggle('open'); }
   function closeNav()  { document.getElementById('mobNav').classList.remove('open'); }
+
+  // Highlight active section in nav
+  (function() {
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    if (!navLinks.length) return;
+    var sections = [];
+    navLinks.forEach(function(a) {
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) sections.push({ el: el, link: a });
+    });
+    if (!sections.length) return;
+    function update() {
+      var best = null, bestDist = Infinity;
+      sections.forEach(function(s) {
+        var r = s.el.getBoundingClientRect();
+        var dist = Math.abs(r.top - 80);
+        if (r.top < window.innerHeight && r.bottom > 0 && dist < bestDist) {
+          bestDist = dist; best = s;
+        }
+      });
+      navLinks.forEach(function(a) { a.classList.remove('active'); });
+      if (best) best.link.classList.add('active');
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
 </script>
 </body>
 </html>

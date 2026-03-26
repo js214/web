@@ -1,12 +1,12 @@
 ---
 group: Atmospheric & Process Gas Analyzers
-is_new: false
+
 model: UGAPM / PPR Series
 name: Process Monitor Systems
 slug: ugapm
+
 image: "images/ugapm_web.jpg"
-sort: 30
-tab: vac
+
 tile_desc: Continuous gas monitoring for industrial and semiconductor manufacturing
   process control.
 
@@ -19,8 +19,9 @@ description_bullets:
 - Almost zero dead volume
 - System bakeout
 - Sample line heating
+
 price: $37,500
-price_note: FOB Sunnyvale, CA
+
 quick_specs:
 - label: Type
   value: Stainless steel capillary, two extra 2-3/4 CF ports
@@ -34,6 +35,7 @@ quick_specs:
   value: Faraday cup and electron multiplier
 - label: Range
   value: 120, 220 or 320 atomic mass units (amu)
+
 spec_groups:
 - name: Inlet
   rows:

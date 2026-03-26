@@ -1,14 +1,14 @@
 ---
 datasheet: https://thinksrs.com/downloads/pdfs/catalog/PTC10c.pdf
-group: Temperature Controllers
+
 image: images/instr/ptc10/PTC10 MainPic.jpg
-is_new: false
+
 manual: https://thinksrs.com/downloads/pdfs/manuals/PTC10m.pdf
+
 model: PTC10
 name: Programmable Temperature Controller
 slug: ptc10
-sort: 20
-tab: sci
+
 tile_desc: Flexible PID controller with up to six sensor inputs and four output channels.
 
 troubleshooting:
@@ -21,8 +21,9 @@ description_bullets:
 - 50 Hz PID sampling
 - Data logging
 - USB, Ethernet, RS-232 & GPIB
+
 price: $2495
-price_note: FOB Sunnyvale, CA
+
 quick_specs:
 - label: Data acquisition rate
   value: 1 to 50 Hz
@@ -37,6 +38,7 @@ quick_specs:
     channel. If exceeded, an audio alarm and a relay closure will occur.
 - label: '# of ports'
   value: 4 configurable DAC or ADC ports
+
 spec_groups:
 - name: PTC10
   rows:

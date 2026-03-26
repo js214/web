@@ -56,6 +56,7 @@
     .page-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 4px 0; }
     .page-nav a { font-size: 14.3px; font-weight: 500; color: var(--text-sec); text-decoration: none; padding: 10px 20px; transition: color var(--t); white-space: nowrap; }
     .page-nav a:hover { color: var(--accent); }
+    .page-nav a.active { color: var(--accent); font-weight: 700; }
 
     .featuresec, .specsec, .tsec { scroll-margin-top: 98px; }
     .featuresec { padding: 56px 28px; background: var(--bg-alt); border-top: 1px solid var(--border); }
@@ -165,9 +166,7 @@
 <div class="phero">
   <div class="phero-inner">
     <div class="phero-text">
-      {% set primary_tab = (tabs[0] if (tabs is defined and tabs) else (tab if tab is defined else 'sci')) %}
-      {% set group_display = (groups[primary_tab] if (groups is defined and groups is mapping and primary_tab in groups) else (group if group is defined else '')) %}
-      {% if group_display %}<a class="s-tag" href="../index.html" onclick="sessionStorage.setItem('tab','{{ primary_tab }}');sessionStorage.setItem('group','group-{{ group_display | slugify }}')">{{ group_display }}</a>{% endif %}
+      {% if group_display is defined and group_display %}<a class="s-tag" href="../index.html" onclick="sessionStorage.setItem('tab','{{ primary_tab }}');sessionStorage.setItem('group','group-{{ group_display | slugify }}')">{{ group_display }}</a>{% endif %}
       <div class="phero-model">{{ model }}</div>
       <div class="phero-name">{{ name }}</div>
       {% if description_bullets is defined and description_bullets %}
@@ -333,6 +332,33 @@
   });
   function toggleNav() { document.getElementById('mobNav').classList.toggle('open'); }
   function closeNav()  { document.getElementById('mobNav').classList.remove('open'); }
+
+  // Highlight active section in page-nav
+  (function() {
+    var navLinks = document.querySelectorAll('.page-nav a[href^="#"]');
+    if (!navLinks.length) return;
+    var sections = [];
+    navLinks.forEach(function(a) {
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) sections.push({ el: el, link: a });
+    });
+    if (!sections.length) return;
+    function update() {
+      var best = null, bestDist = Infinity;
+      sections.forEach(function(s) {
+        var r = s.el.getBoundingClientRect();
+        var dist = Math.abs(r.top - 120);
+        if (r.top < window.innerHeight && r.bottom > 0 && dist < bestDist) {
+          bestDist = dist; best = s;
+        }
+      });
+      navLinks.forEach(function(a) { a.classList.remove('active'); });
+      if (best) best.link.classList.add('active');
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
 </script>
 </body>
 </html>

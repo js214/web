@@ -1,13 +1,12 @@
 ---
 datasheet: https://thinksrs.com/downloads/pdfs/catalog/SR1c.pdf
-group: Audio Instruments
+
 image: images/instr/sr1/SR1 MainPic.jpg
-is_new: false
+
 model: SR1
 name: Audio Analyzer
 slug: sr1
-sort: 10
-tab: test
+
 tile_desc: Two-channel audio analyzer with <−110 dBc THD+N for high-end audio equipment
   characterization.
 
@@ -26,8 +25,9 @@ description_bullets:
 - Low Crosstalk
 - ≤600 ps jitter (50 Hz to 100 kHz)
 - Dual-Channel FFTs
+
 price: $16,950
-price_note: FOB Sunnyvale, CA
+
 quick_specs:
 - label: Amplitude Range (rms)
   value: 1 μV to 28.3 V (balanced) 1 μV to 14.1 V (unbalanced)
@@ -41,6 +41,7 @@ quick_specs:
   value: ±0.0005 % (5 ppm)
 - label: Frequency Resolution
   value: <Fs/2 24
+
 spec_groups:
 - name: Analog Signal Generator
   rows:

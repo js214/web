@@ -1,0 +1,113 @@
+new:
+  New Products:
+    - cg792
+    - bga244
+    - rga120
+    - sr542
+    - dc215
+    - sim985
+
+detect:
+  Lock-In Amplifiers:
+    - sr865a
+    - sr860
+    - sr844
+    - sr850
+    - sr510
+    - sr2124
+    - sr830
+  Preamplifiers:
+    - sr560
+    - sr570
+    - sr445a
+    - sr446
+    - sr554
+    - sr550
+    - sr555
+  FFT Spectrum Analyzers:
+    - sr770
+    - sr780
+  Audio Instruments:
+    - sr1
+    - perf10
+    - sr10
+  LCR Meters & Monitors:
+    - sr715
+    - sr630
+  Frequency Counters:
+    - sr620
+    - sr625
+  Boxcar Averagers & Photon Counters:
+    - sr250
+    - sr400
+
+generate:
+  RF Signal Generators:
+    - sg382
+    - sg392
+  Function & Clock Generators:
+    - cg792
+    - ds345
+    - ds360
+    - cg635
+  Digital Delay & Pulse Generators:
+    - dg645
+    - dg535
+    - db64
+  Voltage & Current Sources:
+    - dc215
+    - cs580
+    - dc205
+  High Voltage Power Supplies:
+    - ps300
+
+analyze:
+  Residual Gas Analyzers:
+    - rga120
+    - rga
+  Atmospheric & Process Gas Analyzers:
+    - bga244
+    - uga120
+    - qms100
+    - ugapm
+    - cis100
+  Analytical Instruments:
+    - qcm200
+    - ec301
+    - nl100
+    - mpa100
+    - mpa160
+
+control:
+  Temperature Controllers:
+    - ctc100
+    - ptc10
+  Laser Diode Controllers:
+    - ldc501
+  SIM Modular Instrument System:
+    - sim985
+    - sim900
+    - sim910
+    - sim918
+    - sim921
+    - sim922
+    - sim928
+    - sim940
+    - sim960
+    - sim964
+    - sim970
+
+synchronize:
+  Frequency Standards & Oscillators:
+    - fs725
+    - prs10
+    - fs740
+    - fs752
+    - sc10
+  Distribution Amplifiers:
+    - fs730
+    - fs710
+  Optical Choppers:
+    - sr542
+    - sr540
+    - sr470

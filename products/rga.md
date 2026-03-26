@@ -2,16 +2,17 @@
 model: SRS RGA
 name: Residual Gas Analyzer
 slug: rga
+
 category: Analytical Instruments
-tab: vac
-group: Residual Gas Analyzers
-is_new: false
-sort: 10
+
 price: "from $3,900"
+
 price_prefix: "Starting From"
-price_note: "FOB Sunnyvale, CA"
+
 tile_desc: "Ultra-compact quadrupole mass spectrometer. All electronics in the sensor head — no separate chassis required."
+
 image: "images/instr/rga/RGA_Wide.jpg"
+
 datasheet: "https://thinksrs.com/downloads/pdfs/catalog/RGAc.pdf"
 manual: "https://thinksrs.com/downloads/pdfs/manuals/RGAm.pdf"
 
@@ -34,6 +35,7 @@ quick_specs:
     value: "CHANNELTRON available"
 
 description_title: "Compact Design, No Separate Electronics"
+
 description_bullets:
   - "All electronics in the sensor head; no external chassis"
   - "USB and RS-232 interfaces standard"

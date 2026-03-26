@@ -1,14 +1,14 @@
 ---
 datasheet: https://thinksrs.com/downloads/pdfs/catalog/PERF10c.pdf
-group: Audio Instruments
+
 image: images/instr/perf10/PERF10_FP.jpg
-is_new: false
+
 manual: https://thinksrs.com/downloads/pdfs/manuals/PERF10m.pdf
+
 model: PERF10
 name: Audio Atomic Clock
 slug: perf10
-sort: 20
-tab: test
+
 tile_desc: Rubidium-referenced 10 MHz word clock for professional recording studios
   demanding ultimate timing accuracy.
 
@@ -17,8 +17,9 @@ description_bullets:
 - Eight 10 MHz, 75 Ω outputs
 - 10 year aging less than 5 ppb
 - Ultra-low phase noise
+
 price: $4695
-price_note: FOB Sunnyvale, CA
+
 quick_specs:
 - label: Accuracy at shipment
   value: ±0.05 ppb ( ±5 × 10 -11)
@@ -33,6 +34,7 @@ quick_specs:
   value: <2 × 10 -11 (1 s) <1 × 10 -11 (10 s) <2 × 10 -12 (100 s)
 - label: Warm-up time
   value: <6 minutes (time to lock)
+
 spec_groups:
 - name: Rubidium Oscillator
   rows:
