@@ -1,73 +1,69 @@
 Test & Measurement:
-  - label: "About FFT Spectrum Analyzers"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/AboutFFTs.pdf"
-  - label: "Direct Digital Synthesis"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/DDS.pdf"
-  - label: "DS345 as a Pulse Generator"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/DS345_duty_cycle.pdf"
-  - label: "Output Impedance Levels for the DS360"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/DS360impedance.pdf"
-  - label: "Advanced Chirp Signals"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SR1_SweptSine.pdf"
-  - label: "Operating SR1 using Windows Remote Desktop"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SR1_UsingWindowsRemoteDesktop.pdf"
-
+- label: About FFT Spectrum Analyzers
+  url: app_notes/AboutFFTs.pdf
+- label: Direct Digital Synthesis
+  url: app_notes/DDS.pdf
+- label: DS345 as a Pulse Generator
+  url: app_notes/DS345_duty_cycle.pdf
+- label: Output Impedance Levels for the DS360
+  url: app_notes/DS360impedance.pdf
+- label: Advanced Chirp Signals
+  url: app_notes/SR1_SweptSine.pdf
+- label: Operating SR1 using Windows Remote Desktop
+  url: app_notes/SR1_UsingWindowsRemoteDesktop.pdf
 Scientific Instruments:
-  - label: "About Lock-In Amplifiers"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/AboutLIAs.pdf"
-  - label: "About Optical Chopper Jitter"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SR542%20Chopper%20Phase%20Jitter.pdf"
-  - label: "Duty Factor for Optically-Chopped Beams"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SR542_duty_factor.pdf"
-  - label: "Nitrogen-Vacancy Centers in Diamond"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/NV%20Diamond.pdf"
-  - label: "Continuous Transfer on SRS DSP Lock-Ins"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/data_xfer_dsp.pdf"
-  - label: "File Format for the SR850 Lock-In"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SR850_file_format.pdf"
-  - label: "Signal Recovery with Photomultiplier Tubes"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SignalRecovery.pdf"
-  - label: "Optical Choppers"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SR540_experiments.pdf"
-  - label: "Signal Enhancement"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SignalEnhancement.pdf"
-  - label: "Communications Examples for SIMs"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/ComSIMs.pdf"
-  - label: "DC205 Noise Comparison"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/DC205%20-%20Noise%20Comparison.pdf"
-
+- label: About Lock-In Amplifiers
+  url: app_notes/AboutLIAs.pdf
+- label: About Optical Chopper Jitter
+  url: app_notes/SR542 Chopper Phase Jitter.pdf
+- label: Duty Factor for Optically-Chopped Beams
+  url: app_notes/SR542_duty_factor.pdf
+- label: Nitrogen-Vacancy Centers in Diamond
+  url: app_notes/NV Diamond.pdf
+- label: Continuous Transfer on SRS DSP Lock-Ins
+  url: app_notes/data_xfer_dsp.pdf
+- label: File Format for the SR850 Lock-In
+  url: app_notes/SR850_file_format.pdf
+- label: Signal Recovery with Photomultiplier Tubes
+  url: app_notes/SignalRecovery.pdf
+- label: Optical Choppers
+  url: app_notes/SR540_experiments.pdf
+- label: Signal Enhancement
+  url: app_notes/SignalEnhancement.pdf
+- label: Communications Examples for SIMs
+  url: app_notes/ComSIMs.pdf
+- label: DC205 Noise Comparison
+  url: app_notes/DC205 - Noise Comparison.pdf
 Time & Frequency:
-  - label: "Making Measurements with the SR620"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/SR620_details.pdf"
-  - label: "PRS10 Dimensional Drawing"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/RBoutline.pdf"
-
+- label: Making Measurements with the SR620
+  url: app_notes/SR620_details.pdf
+- label: PRS10 Dimensional Drawing
+  url: app_notes/RBoutline.pdf
 Vacuum:
-  - label: "Vacuum Diagnosis with an RGA"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/Vac_diag_RGA.pdf"
-  - label: "Choosing a Quadrupole Gas Analyzer"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/RightQuad.pdf"
-  - label: "High Pressure Sampling with RGAs"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/High_Pres_Sampling.pdf"
-  - label: "RGA Maximum Insertion Nipple"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/MaxInsNipple.pdf"
-  - label: "Conversion Factors for Pressure Units"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/IG1conversionapp.pdf"
-  - label: "The Closed Ion Source (CIS) Advantage"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/cis.pdf"
-  - label: "Residual Gas Analysis Basics"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/Residual%20Gas%20Analysis%20Basics.pdf"
-
+- label: Vacuum Diagnosis with an RGA
+  url: app_notes/Vac_diag_RGA.pdf
+- label: Choosing a Quadrupole Gas Analyzer
+  url: app_notes/RightQuad.pdf
+- label: High Pressure Sampling with RGAs
+  url: app_notes/High_Pres_Sampling.pdf
+- label: RGA Maximum Insertion Nipple
+  url: app_notes/MaxInsNipple.pdf
+- label: Conversion Factors for Pressure Units
+  url: app_notes/IG1conversionapp.pdf
+- label: The Closed Ion Source (CIS) Advantage
+  url: app_notes/cis.pdf
+- label: Residual Gas Analysis Basics
+  url: app_notes/Residual Gas Analysis Basics.pdf
 Analytical:
-  - label: "Quartz Crystal Microbalance Theory"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/QCMTheoryapp.pdf"
-  - label: "Melting Point Determination"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/MPProcedure.pdf"
-  - label: "Temperature Calibration Methods"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/temp_cal_mpa.pdf"
-  - label: "Comparing Thermal Conductivity Analyzers with the BGA244"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/BGA244%20vs%20Thermal%20Conductivity%20Analyzers.pdf"
-  - label: "BGA244 Physics Overview"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/BGA244%20physics%20overview.pdf"
-  - label: "Gases Measured by the BGA244"
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/BGA244%20Gas%20Table.pdf"
+- label: Quartz Crystal Microbalance Theory
+  url: app_notes/QCMTheoryapp.pdf
+- label: Melting Point Determination
+  url: app_notes/MPProcedure.pdf
+- label: Temperature Calibration Methods
+  url: app_notes/temp_cal_mpa.pdf
+- label: Comparing Thermal Conductivity Analyzers with the BGA244
+  url: app_notes/BGA244 vs Thermal Conductivity Analyzers.pdf
+- label: BGA244 Physics Overview
+  url: app_notes/BGA244 physics overview.pdf
+- label: Gases Measured by the BGA244
+  url: app_notes/BGA244 Gas Table.pdf

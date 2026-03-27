@@ -193,18 +193,6 @@ def build(slug: str | None = None):
                 shutil.copy2(f, icons_dst / f.name)
                 print(f"  copied: images/icons/{f.name}")
 
-    # --- Simulator (WASM app) ---
-    sim_src = ROOT / "sim"
-    if sim_src.exists():
-        sim_dst = DIST / "sim"
-        for f in sim_src.rglob("*"):
-            if f.is_file():
-                rel = f.relative_to(sim_src)
-                dest = sim_dst / rel
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(f, dest)
-                print(f"  copied: sim/{rel}")
-
     # --- PDFs (datasheets, manuals, app_notes) ---
     for dirname in ("datasheets", "manuals", "app_notes"):
         src = ROOT / dirname

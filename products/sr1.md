@@ -260,7 +260,7 @@ resources:
 - label: "What's New with SR1"
   url: "https://thinksrs.com/downloads/pdfs/other%20stuff/What%27s%20new%20with%20SR1.pdf"
 - label: "SR1 Volatility Statement"
-  url: "https://thinksrs.com/downloads/pdfs/other%20stuff/Volatility%20Statement%20SR1.pdf"
+  url: "app_notes/Volatility Statement SR1.pdf"
 ---
 
 The SR1 Dual-Domain Audio Analyzer is a stand-alone instrument that delivers cutting edge performance in a wide variety of audio measurements. It combines a versatile generator with analyzers operating in both analog and digital domains, supporting sampling rates up to 192 kHz for digital audio carrier measurements.

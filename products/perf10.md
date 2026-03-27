@@ -82,7 +82,7 @@ spec_groups:
 
 resources:
   - label: "PRS10 Dimensional Dwg."
-    url: "https://thinksrs.com/downloads/pdfs/applicationnotes/RBoutline.pdf"
+    url: "app_notes/RBoutline.pdf"
 
 related:
   - label: "FS725 10 MHz Rubidium Frequency Standard"
