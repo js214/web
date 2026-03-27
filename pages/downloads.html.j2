@@ -52,7 +52,7 @@
       <tbody>
         {% for n in notes %}
         <tr>
-          <td><a href="{{ n.url }}" target="_blank" rel="noopener">{{ n.label }}</a></td>
+          <td style="color:var(--text)">{{ n.label }}</td>
           <td style="width:60px;text-align:right"><a href="{{ n.url }}" target="_blank" rel="noopener">PDF</a></td>
         </tr>
         {% endfor %}
