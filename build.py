@@ -183,6 +183,16 @@ def build(slug: str | None = None):
                 shutil.copy2(f, dest)
                 print(f"  copied: images/instr/{rel}")
 
+    # --- Icon images ---
+    icons_src = IMAGES_DIR / "icons"
+    if icons_src.exists():
+        icons_dst = DIST / "images" / "icons"
+        icons_dst.mkdir(parents=True, exist_ok=True)
+        for f in icons_src.iterdir():
+            if f.is_file():
+                shutil.copy2(f, icons_dst / f.name)
+                print(f"  copied: images/icons/{f.name}")
+
     # --- Simulator (WASM app) ---
     sim_src = ROOT / "sim"
     if sim_src.exists():
