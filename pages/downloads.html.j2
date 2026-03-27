@@ -37,13 +37,36 @@
 <!-- HERO -->
 <div class="page-hero">
   <span class="s-tag">Downloads</span>
-  <h1>Manuals &amp; Datasheets</h1>
-  <p>Free PDF downloads for all SRS instruments — datasheets and operating manuals.</p>
+  <h1>Downloads</h1>
+  <p>Datasheets, manuals, and application notes for all SRS instruments.</p>
 </div>
 
-<!-- DOWNLOADS -->
+<!-- APP NOTES -->
+{% if app_notes %}
 <section class="inner-section">
   <div class="inner-wrap" style="max-width:1100px">
+    <h2 style="font-size:24.2px;font-weight:700;letter-spacing:-0.3px;margin-bottom:20px;color:var(--text)">Application Notes</h2>
+    {% for category, notes in app_notes.items() %}
+    <h3 style="font-size:15.4px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;margin:24px 0 10px">{{ category }}</h3>
+    <table class="dl-table">
+      <tbody>
+        {% for n in notes %}
+        <tr>
+          <td><a href="{{ n.url }}" target="_blank" rel="noopener">{{ n.label }}</a></td>
+          <td style="width:60px;text-align:right"><a href="{{ n.url }}" target="_blank" rel="noopener">PDF</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- MANUALS & DATASHEETS -->
+<section class="inner-section alt">
+  <div class="inner-wrap" style="max-width:1100px">
+    <h2 style="font-size:24.2px;font-weight:700;letter-spacing:-0.3px;margin-bottom:20px;color:var(--text)">Manuals &amp; Datasheets</h2>
 
     <div class="filter-tabs">
       <button class="filter-tab on" onclick="showDl('all')">All</button>

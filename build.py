@@ -141,6 +141,10 @@ def build(slug: str | None = None):
     catalog_order = yaml.safe_load(CATALOG_ORDER.read_text(encoding="utf-8"))
     tabs_by_group = organize_by_tab(all_products, catalog_order)
 
+    # Load app notes
+    app_notes_file = PAGES_DIR / "app_notes.yaml"
+    app_notes = yaml.safe_load(app_notes_file.read_text(encoding="utf-8")) if app_notes_file.exists() else {}
+
     # Build slug -> (primary_tab, group_name) from catalog_order (skip "new" tab)
     slug_placement = {}
     for tab_id, groups in catalog_order.items():
@@ -224,6 +228,7 @@ def build(slug: str | None = None):
             new_slugs=new_slugs,
             discontinued_slugs=discontinued_slugs,
             slug_placement=slug_placement,
+            app_notes=app_notes,
         )
         (DIST / out_name).write_text(html, encoding="utf-8")
         print(f"  built:  {out_name}")
